@@ -6,21 +6,32 @@
         {
         "route": "/index.html",
         "rewrite": "/"
-      },
-      {
-        "route": "/help"
-      },
-      {
-        "route": "/profile",
-        "allowedRoles": ["authenticated"]
-      },
-      {
-        "route": "/settings",
-        "allowedRoles": ["authenticated"]
-      },
-      {
-        "route": "/submit",
-        "allowedRoles": ["authenticated"]
+        },
+        {
+          "route": "/help"
+        },
+        {
+          "route": "/profile",
+          "allowedRoles": ["authenticated"]
+        },
+        {
+          "route": "/settings",
+          "allowedRoles": ["authenticated"]
+        },
+        {
+          "route": "/submit",
+          "allowedRoles": ["authenticated"]
+        },
+        {
+          "route": "/api/*",
+          "rewrite": "/",
+          "allowedRoles": ["authenticated"]
+        }
+     ],
+     "responseOverrides": {
+      "401": {
+        "redirect": "/authentication/login",
+        "statusCode": 302
       }
-     ]
+    }
   }
