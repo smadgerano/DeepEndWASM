@@ -8,8 +8,19 @@
         "rewrite": "/"
       },
       {
-        "route": "/help",
-        "rewrite": "/help"
+        "route": "/help"
+      },
+      {
+        "route": "/profile",
+        "allowedRoles": ["authenticated"]
+      },
+      {
+        "route": "/settings",
+        "allowedRoles": ["authenticated"]
+      },
+      {
+        "route": "/submit",
+        "allowedRoles": ["authenticated"]
       }
      ]
   }
