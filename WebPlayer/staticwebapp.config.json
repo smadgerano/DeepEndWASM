@@ -1,0 +1,15 @@
+{   
+    "navigationFallback": {     
+      "rewrite": "/index.html" 
+    },
+    "routes": [
+        {
+        "route": "/index.html",
+        "rewrite": "/"
+      },
+      {
+        "route": "/help",
+        "rewrite": "/help"
+      }
+     ]
+  }

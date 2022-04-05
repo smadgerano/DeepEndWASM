@@ -1,0 +1,59 @@
+﻿@inject INotificationService NotificationService
+
+@page "/settings"
+
+<h3>Settings</h3>
+
+<br />
+
+<h4>Install the web player?</h4>
+
+<p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
+
+<br />
+
+<button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
+
+<br />
+<br />
+<br />
+
+<h4>Notifications</h4>
+<p>Now you're signed up we can send you notifications. You don't have to have these enabled, but in the future there will be functions to notify you when your track is about to be played, or when someone likes your track etc.</p>
+
+<br />
+<button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
+<button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
+
+<br />
+<br />
+<br />
+<em>More coming soon...</em>
+<br />
+<br />
+<br />
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.UiReady = true;       
+    }
+
+    private async void RequestNotificationPermission()
+    {
+        PermissionType permission = await NotificationService.RequestPermissionAsync();  
+    }
+
+    private  async void TriggerNotification()
+    {
+        NotificationOptions options = new NotificationOptions
+        {
+            Body = "Well that worked then!",
+            Icon = "",
+        };
+
+        await NotificationService.CreateAsync("Test Notification", options);
+    }
+}

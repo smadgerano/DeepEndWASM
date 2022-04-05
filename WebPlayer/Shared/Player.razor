@@ -1,0 +1,68 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JS;
+
+<div>
+
+    <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
+    <ValidationSummary />
+    <div class="mb-3 input-group">
+        <InputSelect @bind-Value="requestForm.URL" class="form-control form-select-sm" id="streamName" >
+            
+            @foreach (var item in streams )
+            { 
+                if(item.URL == AppState.StreamURL)
+                {
+                    <option selected value="@item.URL">@item.Country: @item.Name</option>
+                }
+                else
+                {
+                    <option value="@item.URL">@item.Country: @item.Name</option>
+                }
+                    
+            }
+        </InputSelect>
+        <button type="submit" class="btn-sm btn-success" onclick="video.load();">Go</button>  
+    </div>
+
+    <figure class="text-center">
+        <audio controls autoplay name="media" preload="none" id="streamPlayer">
+            <source src="@AppState.StreamURL" type="audio/mpeg">
+        </audio>
+        <br />
+        <br />
+      <figcaption class="blockquote-footer">
+        Some things are a bit unstable at the moment, if things go funky just refresh the page.
+      </figcaption>
+    </figure>
+
+</EditForm> 
+</div>
+<br />
+<br />
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    List<Data.StreamSource> streams = Data.Globals.StreamSources();
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    private async Task HandleValidSubmit(EditContext editContext)
+    {
+        await JS.InvokeVoidAsync("stopAudioPlayer");
+        AppState.StreamURL = requestForm.URL;
+        await JS.InvokeVoidAsync("reloadAudioPlayer");
+    }
+
+    private RequestForm requestForm = new(){ };
+
+    public class RequestForm{
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public string? Country { get; set; }
+        public string? URL { get; set; }
+    }
+}

@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/.github/workflows/azure-static-web-apps-lemon-meadow-0a891bb03.yml

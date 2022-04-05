@@ -1,0 +1,40 @@
+﻿@using Append.Blazor.Notifications
+@inject INotificationService NotificationService
+@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+
+<!-- <style>
+    body { padding-top: 57px; padding-bottom: 110px; }
+</style> -->
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu /> 
+    </div>
+
+    <main>
+        <article class="content px-4">
+            <Player />
+            @Body
+        </article>
+    </main>
+</div>
+
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    protected async Task ClockTick()
+    {
+        var periodicTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+        while (await periodicTimer.WaitForNextTickAsync())
+        {
+            AppState.Clock = DateTime.UtcNow;
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ClockTick();        
+    }
+}

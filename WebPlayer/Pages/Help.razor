@@ -1,0 +1,144 @@
+﻿@page "/help"
+
+<h3>Help / FAQ</h3>
+<br />
+<ul >
+    <li><a onclick="document.getElementById('q1').scrollIntoView({behavior:'smooth'})" class="link-primary">What is this thing and why is it here?</a></li>
+    <li><a onclick="document.getElementById('q2').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I have to create an account?</a><br /></li>
+    <li><a onclick="document.getElementById('q3').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I need an account to submit a track?</a><br /></li>
+    <li><a onclick="document.getElementById('q4').scrollIntoView({behavior:'smooth'})" class="link-primary">Why do you want my email?</a><br /></li>
+    <li><a onclick="document.getElementById('q5').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I need a new account for each artist name I use?</a><br /></li>
+    <li><a onclick="document.getElementById('q6').scrollIntoView({behavior:'smooth'})" class="link-primary">What if you've alrady uploaded a track for the radio?</a><br /></li>
+    <li><a onclick="document.getElementById('q7').scrollIntoView({behavior:'smooth'})" class="link-primary">Why can't I sign in with my Discord ID?</a><br /></li>
+    <li><a onclick="document.getElementById('q8').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I have to use the web player?</a><br /></li>
+    <li><a onclick="document.getElementById('q9').scrollIntoView({behavior:'smooth'})" class="link-primary">Can I install the web player?</a><br /></li>
+</ul>
+<br />
+
+
+<div id="q1">
+<h4 >What is this thing and why is it here?</h4>
+
+<p>This app is an interface for the Deep End Community Radio, a online radio station created for the members of the Deep End / Venus Theory Discord server to showcase and present their work.</p> 
+
+<p>There's a lot of cool and varied music being made by everyone in the server, and this is opportunity to hear what everyone is up to, appreciate some good music, and to provide an outlet in to the world when there's so much competition for playtime on other platforms. It was made for the community to get involved with and encourage conversations.</p>
+</div>
+
+<br />
+
+
+
+<h4 id="q2">Do I have to create an account?</h4>
+
+<p>No, if you don't want an account you don't have to, you can listen to the stream as a guest user without problems. Or you use one the raw streams listed further down the page.</p>
+
+<p>But, creating an account will give you a few benefits and features you wouldn't otherwise get. Right now there's not much to shout about, but there's more stuff comging later.</p>
+
+
+<br />
+
+
+<h4 id="q3">Do I need an account to submit a track?</h4>
+
+<p>Yes, and no. In the future if you want to submit a track through the app you will need an account (but this isn't quite ready yet) this is primarily to stop spammers and unsolicted uploads. One of the bonuses of doing this is that the app can remember your details if you want to submit multiple tracks.</p>
+
+<p>However, I absolutely understand some people will not want to do that for a number of perfectly legitimate reasons, if that's you that's fine, just hit me up in the Discord (@@smadger) and let me know, I'll let you know what I need and you can DM me the track.</p>
+
+<br />
+
+
+<h4 id="q4">Why do you want my email?</h4>
+
+<p>If you forget your password, you should be able to reset your accont yourself without having to wait for someone to reply to you, and I don't want to know your password. You can use your email to recover your account and I don't have to be involved.</p>
+
+
+<br />
+
+<h4 id="q5">Do I need a new account for each artist name I use?</h4>
+
+<p>No, you only need to create one account for yourself. At the moment you will only be able to submit tracks as one artist, but this will change soon. In the meantime send a DM in Discord for each alternative artist name you have.</p>
+
+<br />
+
+
+<h4 id="q6">What if you've alrady uploaded a track for the radio?</h4>
+
+<p>When track uploads are enabled, then it will the same situation as above, if you don't want an account that's fine, but if you do let me know via DM in the Discord (@@smadger) and I'll sort it out.</p>
+
+<br />
+
+
+
+<h4 id="q7">Why can't I sign in with my Discord ID?</h4>
+
+<p>You might be able to soon, it's being explored, don't know, but for now this is how it's working.</p>
+
+<br />
+
+
+<h4 id="q8">Do I have to use the web player?</h4>
+
+<p>Noop, if you want to plug directly in to the streams you can use the URLs below in something like <a href="https://www.videolan.org/vlc/">VLC player</a>, but the web player wil give you a better experience as features are added, and will keep being developed to offer more features in the future.</p>
+
+<b>Note</b>: <em>direct stream connections to an HTTPS endpoint don't provide track metadata.</em>
+<br />
+<br />
+
+
+<table class="table">
+    <tr>
+        <th scope="col">Host</th>
+        <th scope="col">Country</th>
+        <th scope="col">URL</th>
+        <th scope="col">Metadata</th>
+    </tr>
+    <tr>
+        <td>Smadger</td>
+        <td>UK 1</td>
+        <td>http://deepend.ddns.net:8000/</td>
+        <td><i class="bi bi-check-lg text-success"></i></td>
+    </tr>
+    <tr>
+        <td>Smadger</td>
+        <td>UK 2</td>
+        <td>https://deepend.ddns.net/stream</td>
+        <td><i class="bi bi-x-lg text-danger"></i></td>
+    </tr>
+    <tr>
+        <td>ClusterFox</td>
+        <td>USA 1</td>
+        <td>http://deependswamp.ddns.net:8000/deepend</td>
+        <td><i class="bi bi-check-lg text-success"></i></td>
+    </tr>
+    <tr>
+        <td>ClusterFox</td>
+        <td>USA 2</td>
+        <td>https://deependswamp.ddns.net:8443/deepend</td>
+        <td><i class="bi bi-x-lg text-danger"></i></td>
+    </tr>
+</table>
+
+
+<br />
+
+<h4 id="q9">Can I install the web player?</h4>
+
+<p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
+
+<br />
+
+
+<button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
+<br />
+<br />
+<br />
+
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.UiReady = true;       
+    }
+}

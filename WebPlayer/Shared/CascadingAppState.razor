@@ -1,0 +1,143 @@
+﻿<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    // live state
+    private DateTime clock = DateTime.UtcNow;
+    public DateTime Clock
+    {
+        get
+        {
+            return clock;
+        }
+        set
+        {
+            clock = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private bool uiReady = false;
+    public bool UiReady
+    {
+        get
+        {
+            return uiReady;
+        }
+        set
+        {
+            uiReady = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private Data.Player.Type playerUIType = Data.Player.Type.FullPageMedium;
+    public Data.Player.Type PlayerUIType
+    {
+        get
+        {
+            return playerUIType;
+        }
+        set
+        {
+            playerUIType = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private bool loggedIn = false;
+    public bool LoggedIn
+    {
+        get
+        {
+            return loggedIn;
+        }
+        set
+        {
+            loggedIn = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private Data.Track playingNow = new Data.Track();
+    public Data.Track PlayingNow
+    {
+        get
+        {
+            return playingNow;
+        }
+        set
+        {
+            playingNow = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private Data.Track playingNext = new Data.Track();
+    public Data.Track PlayingNext
+    {
+        get
+        {
+            return playingNext;
+        }
+        set
+        {
+            playingNext = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private List<Data.Track> playHistory = new List<Data.Track>();
+    public List<Data.Track> PlayHistory
+    {
+        get
+        {
+            return playHistory;
+        }
+        set
+        {
+            playHistory = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private string streamURL = "https://deependswamp.ddns.net:8443/deepend";
+    public string StreamURL
+    {
+        get
+        {
+            return streamURL;
+        }
+        set
+        {
+            streamURL = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
+    private Data.StreamSource currentStream = new Data.StreamSource(){ URL = "https://deependswamp.ddns.net:8443/deepend", Name="ClusterFox", Country="USA", Description= ""};
+    public Data.StreamSource CurrentStream
+    {
+        get
+        {
+            return currentStream;
+        }
+        set
+        {
+            currentStream = value;
+            StateHasChanged();
+        }
+    }
+}

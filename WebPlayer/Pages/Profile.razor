@@ -1,0 +1,16 @@
+﻿@page "/profile"
+
+<h3>Artist Profile</h3>
+
+<p>Set up your artist profiles, and see feedback from others.</p>
+<em>Coming soon...</em>
+
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.UiReady = true;       
+    }
+}

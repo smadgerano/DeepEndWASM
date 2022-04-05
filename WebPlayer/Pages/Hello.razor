@@ -1,0 +1,72 @@
+﻿@inject INotificationService NotificationService
+@page "/hello"
+
+<h3>Welcome to Deep End Community Radio</h3>
+<p>First we need to sort a few things out, complete the sections below...</p>
+
+<br />
+
+<h4>Notifications</h4>
+<p>Now you're signed up we can send you notifications. You don't have to have these enabled, but it makes it more fun.</p>
+
+<br />
+<button type="button" class="btn btn-primary" onclick="@RequestNotificationPermission">Enable notifications</button>
+<button type="button" class="btn btn-primary" onclick="@TriggerNotification">Sends a test</button>
+
+<br />
+<br />
+<br />
+<br />
+
+<h4>Install the Web Player</h4>
+<p>This page can be installed on your machine as a PWA, it's not a requirement but be useful to some.</p>
+
+<br />
+
+<button type="button" class="btn btn-primary" onclick="">Install</button>
+
+<br />
+<br />
+<br />
+<br />
+
+<h4>Artist Profile</h4>
+<p>If you would like to submit music to the radio stream, please complete the artist form. This is not neccessary if you just want to be a listener.</p>
+
+<button type="button" class="btn btn-primary" onclick="">Set up artist profile</button>
+
+<form>
+</form>
+<br />
+<br />
+<br />
+<br />
+
+
+
+@code {
+
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+             
+    }
+
+    private async void RequestNotificationPermission()
+    {
+        PermissionType permission = await NotificationService.RequestPermissionAsync();  
+    }
+
+    private  async void TriggerNotification()
+    {
+        NotificationOptions options = new NotificationOptions
+        {
+            Body = "Body text",
+            Icon = "",
+        };
+
+        await NotificationService.CreateAsync("Test", options);
+    }
+
+}
