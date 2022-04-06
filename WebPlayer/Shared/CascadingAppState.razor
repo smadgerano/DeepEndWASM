@@ -37,6 +37,21 @@
     }
 
     // live state
+    private bool autoPlay = false;
+    public bool AutoPlay
+    {
+        get
+        {
+            return autoPlay;
+        }
+        set
+        {
+            autoPlay = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
     private Data.Player.Type playerUIType = Data.Player.Type.FullPageMedium;
     public Data.Player.Type PlayerUIType
     {
