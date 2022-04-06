@@ -1,6 +1,6 @@
-{   
-  "navigationFallback": {     
-    "rewrite": "/index.html" 
+{
+  "navigationFallback": {
+    "rewrite": "/index.html"
   },
   "routes": [
     {
@@ -34,7 +34,7 @@
     },
     {
       "route": "/api/*",
-      "rewrite": "/",
+      "methods": [ "PUT", "POST", "PATCH", "DELETE" ],
       "allowedRoles": [ "authenticated" ]
     }
   ],
@@ -43,5 +43,8 @@
       "redirect": "/authentication/login",
       "statusCode": 302
     }
+  },
+  "mimeTypes": {
+    ".json": "text/json"
   }
 }
