@@ -43,7 +43,7 @@
             </div>
             </Authorized>
             <NotAuthorized>
-            
+
             </NotAuthorized>
         </AuthorizeView>
 
@@ -57,17 +57,14 @@
         <div class="nav-item px-3">
              <AuthorizeView>
                 <Authorized>
-                
-                        <NavLink class="nav-link" @onclick="BeginLogout">
-                            <span class="oi bi-key" aria-hidden="true"></span> Log out
-                        </NavLink>
-
+                    <NavLink class="nav-link" @onclick="BeginLogout">
+                        <span class="oi bi-key" aria-hidden="true"></span> Log out
+                    </NavLink>
                 </Authorized>
                 <NotAuthorized>
-                        <NavLink class="nav-link" href="authentication/login">
-                            <span class="oi bi-key" aria-hidden="true"></span> Log in / Sign up
-                        </NavLink>
-                
+                    <NavLink class="nav-link" href="authentication/login">
+                        <span class="oi bi-key" aria-hidden="true"></span> Log in / Sign up
+                    </NavLink>
                 </NotAuthorized>
             </AuthorizeView>
         </div>
