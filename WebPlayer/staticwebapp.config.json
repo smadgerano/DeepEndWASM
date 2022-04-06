@@ -27,7 +27,10 @@
     },
     {
       "route": "/submit",
-      "allowedRoles": [ "authenticated" ]
+      "allowedRoles": [ "authenticated" ],
+      "headers": {
+        "cache-control": "must-revalidate, max-age=2419200"
+      }
     },
     {
       "route": "/api/*",
