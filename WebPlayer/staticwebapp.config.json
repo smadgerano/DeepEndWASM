@@ -1,37 +1,45 @@
 {   
-    "navigationFallback": {     
-      "rewrite": "/index.html" 
+  "navigationFallback": {     
+    "rewrite": "/index.html" 
+  },
+  "routes": [
+    {
+      "route": "/index.html",
+      "rewrite": "/"
     },
-    "routes": [
-        {
-        "route": "/index.html",
-        "rewrite": "/"
-        },
-        {
-          "route": "/help"
-        },
-        {
-          "route": "/profile",
-          "allowedRoles": ["authenticated"]
-        },
-        {
-          "route": "/settings",
-          "allowedRoles": ["authenticated"]
-        },
-        {
-          "route": "/submit",
-          "allowedRoles": ["authenticated"]
-        },
-        {
-          "route": "/api/*",
-          "rewrite": "/",
-          "allowedRoles": ["authenticated"]
-        }
-     ],
-     "responseOverrides": {
-      "401": {
-        "redirect": "/authentication/login",
-        "statusCode": 302
-      }
+    {
+      "route": "/player",
+      "rewrite": "/"
+    },
+    {
+      "route": "/history"
+    },
+    {
+      "route": "/help"
+    },
+    {
+      "route": "/profile",
+      "allowedRoles": [ "authenticated" ]
+    },
+    {
+      "route": "/settings",
+      "allowedRoles": [ "authenticated" ]
+    },
+    {
+      "route": "/submit",
+      "allowedRoles": [ "authenticated" ]
+    },
+    {
+      "route": "/api/*",
+      "rewrite": "/",
+      "allowedRoles": [ "authenticated" ]
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "redirect": "/authentication/login",
+      "statusCode": 302
     }
   }
+
+}
