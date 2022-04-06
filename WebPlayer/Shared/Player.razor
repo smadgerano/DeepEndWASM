@@ -5,7 +5,7 @@
 
     <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
     <ValidationSummary />
-    <div class="mb-3 input-group">
+    <div class="mb-3 input-group ">
         <InputSelect @bind-Value="requestForm.URL" class="form-control form-select-sm" id="streamName" >
             
             @foreach (var item in streams )
