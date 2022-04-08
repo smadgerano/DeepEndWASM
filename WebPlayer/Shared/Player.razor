@@ -4,13 +4,14 @@
 
 @if (AppState.BigPlayerUI)
 {
-    <div class="row ">
-        <div class="col-4">
-            <button class="btn-sm btn-success" onclick="@PlayHowler">Play</button>  
-        </div
-        <div class="col-4">
-            <button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
+   <div class="container">
+            <div class="row">
+                <div class="col-12" style="text-align: center;">
+                <WebPlayer.Shared.PlayerUI.MasterButton FontSize="8em" FontColour="#212529e6"/>
+            </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-4">
             <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
                 <ValidationSummary />
@@ -34,20 +35,28 @@
                 </div>
             </EditForm> 
         </div>
-    </div>
+</div>
 }
 else
 {
-    <footer class="footer mt-auto py-2 navbar-dark text-white bg-dark fixed-bottom">
-      <div class="container">
-        <div class="row ">
-            <div class="col-4">
-                <button class="btn-sm btn-success" onclick="@PlayHowler">Play</button>  
-            </div
-            <div class="col-4">
-                <button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
+    <footer class="footer mt-auto py-3 text-white bg-dark fixed-bottom" style="background-color: #ffffff">
+        <div class="container">
+            <div class="row ">
+                <div class="col-2" style="text-align: right;"> 
+                    <WebPlayer.Shared.PlayerUI.MasterButton FontSize="3.2em" FontColour="#fbfbfb"/>
+                </div>
+                <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
+                    <input type="range" class="form-range" min="0" max="1" step="0.01" value="1" id="volumeSlider" onchange="showValue(this.value)" oninput="showValue(this.value)" > 
+                </div>
+                <div class="col-8 align-items-center">   
+                    <div class="row">
+                        <span class="h5">All About Something Deep</span>
+                    </div>
+                    <div class="row pt-0">
+                        <span style="color: #adb5bd;"><em>Venus Theory</em></span>
+                    </div> 
+                </div>
             </div>
-        </div>
         </div>
     </footer>
 }

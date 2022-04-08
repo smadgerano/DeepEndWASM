@@ -6,7 +6,10 @@
     loop: false
 });
 
-var vol = sound.volume();
+function showValue(newValue) {
+    document.getElementById('volumeSlider').innerHTML = newValue;
+    sound.volume(newValue);
+}
 
 function startHowlerPlayer() {
     vol = 0.0;

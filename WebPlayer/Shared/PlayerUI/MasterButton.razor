@@ -1,0 +1,44 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JS;
+
+
+@if (AppState.IsPlaying)
+{
+    <span class="h1" style="font-size:@FontSize;" onclick="@StopHowler">
+        <i class="fa-regular fa-circle-pause" style="color:@FontColour;"></i>
+    </span>
+}
+else
+{
+    <span class="h1" style="font-size:@FontSize" onclick="@PlayHowler">
+        <i class="fa-regular fa-circle-play" style="color:@FontColour;"></i>
+    </span> 
+}
+
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    [Parameter]
+    public string FontSize { get; set; }
+
+    [Parameter]
+    public string FontColour { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    private async Task PlayHowler()
+    {
+        await JS.InvokeVoidAsync("startHowlerPlayer");
+        AppState.IsPlaying = true;
+    }
+
+    private async Task StopHowler()
+    {
+        await JS.InvokeVoidAsync("stopHowlerPlayer");
+        AppState.IsPlaying = false;
+    }
+}

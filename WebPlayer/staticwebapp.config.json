@@ -33,6 +33,22 @@
       }
     },
     {
+      "route": "/discord",
+      "rewrite": "/"
+    },
+    {
+      "route": "/discover",
+      "rewrite": "/"
+    },
+    {
+      "route": "/looper",
+      "rewrite": "/"
+    },
+    {
+      "route": "/schedule",
+      "rewrite": "/"
+    },
+    {
       "route": "/api/*",
       "methods": [ "GET", "PUT", "POST", "PATCH", "DELETE" ],
       "allowedRoles": [ "authenticated" ]
