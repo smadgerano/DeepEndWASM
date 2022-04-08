@@ -47,29 +47,6 @@ else
             <div class="col-4">
                 <button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
             </div>
-            <div class="col-4">
-                <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
-                    <ValidationSummary />
-                    <div class="mb-3 input-group ">
-                        <InputSelect @bind-Value="requestForm.URL" class="form-control form-select-sm" id="streamName" >
-            
-                            @foreach (var item in streams )
-                            { 
-                                if(item.URL == AppState.StreamURL)
-                                {
-                                    <option selected value="@item.URL">@item.Country: @item.Name</option>
-                                }
-                                else
-                                {
-                                    <option value="@item.URL">@item.Country: @item.Name</option>
-                                }
-                    
-                            }
-                        </InputSelect>
-                        <button type="submit" class="btn-sm btn-success" onclick="video.load();">Go</button>  
-                    </div>
-                </EditForm> 
-            </div>
         </div>
         </div>
     </footer>
