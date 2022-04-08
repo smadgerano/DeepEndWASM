@@ -5,5 +5,11 @@
 <em>Coming soon...</em>
 
 @code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.BigPlayerUI = false;
+        AppState.UiReady = true;       
+    }
 }

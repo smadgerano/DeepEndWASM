@@ -37,6 +37,21 @@
     }
 
     // live state
+    private bool bigPlayerUI = false;
+    public bool BigPlayerUI
+    {
+        get
+        {
+            return bigPlayerUI;
+        }
+        set
+        {
+            bigPlayerUI = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
     private bool isPlaying = false;
     public bool IsPlaying
     {

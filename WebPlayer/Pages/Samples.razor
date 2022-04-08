@@ -1,5 +1,11 @@
 ﻿<h3>Samples</h3>
 
 @code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        AppState.BigPlayerUI = false;
+        AppState.UiReady = true;       
+    }
 }
