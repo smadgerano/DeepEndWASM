@@ -1,28 +1,32 @@
 ﻿var sound = new Howl({
     src: ['https://deependswamp.ddns.net:8443/deepend'],
-    html5: true
+    html5: true,
+    volume: 0.0,
+    autoplay: false,
+    loop: false
 });
 
-
+var vol = sound.volume();
 
 function startHowlerPlayer() {
-    var id1 = sound.play();
-    sound.fade(0, 1, 1000, id1);
+    vol = 0.0;
+    sound.play();
+    sound.fade(0.0, 1.0, 1000);
 }
 
 function stopHowlerPlayer() {
-    sound.fade(1, 0, 1000, id1);
-    await sleep(1000);
+    sound.fade(1.0, 0.0, 1000);
+    vol = 0.0;
     sound.stop();
 }
 
 function switchHowlerStream(url) {
-    sound.fade(1, 0, 1000, id1);
-    await sleep(1000);
+    sound.fade(1.0, 0.0, 1000);
+    vol = 0.0;
     sound.stop();
     sound.unload();
-    sound.src = url;
-    var id1 = sound.play();
-    sound.fade(0, 1, 1000, id1);
+    sound.src = [url];
+    sound.play();
+    vol = 0.0;
+    sound.fade(0.0, 1.0, 1000);
 }
-
