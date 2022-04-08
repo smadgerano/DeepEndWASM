@@ -1,37 +1,81 @@
 ﻿@using Microsoft.JSInterop
 @inject IJSRuntime JS;
 
-<div class="row ">
-    <div class="col-4">
-        <button class="btn-sm btn-success" onclick="@PlayHowler">Play</button>  
-    </div
-    <div class="col-4">
-        <button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
-    </div>
-    <div class="col-4">
-        <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
-            <ValidationSummary />
-            <div class="mb-3 input-group ">
-                <InputSelect @bind-Value="requestForm.URL" class="form-control form-select-sm" id="streamName" >
+
+@if (AppState.BigPlayerUI)
+{
+    <div class="row ">
+        <div class="col-4">
+            <button class="btn-sm btn-success" onclick="@PlayHowler">Play</button>  
+        </div
+        <div class="col-4">
+            <button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
+        </div>
+        <div class="col-4">
+            <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
+                <ValidationSummary />
+                <div class="mb-3 input-group ">
+                    <InputSelect @bind-Value="requestForm.URL" class="form-control form-select-sm" id="streamName" >
             
-                    @foreach (var item in streams )
-                    { 
-                        if(item.URL == AppState.StreamURL)
-                        {
-                            <option selected value="@item.URL">@item.Country: @item.Name</option>
-                        }
-                        else
-                        {
-                            <option value="@item.URL">@item.Country: @item.Name</option>
-                        }
+                        @foreach (var item in streams )
+                        { 
+                            if(item.URL == AppState.StreamURL)
+                            {
+                                <option selected value="@item.URL">@item.Country: @item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.URL">@item.Country: @item.Name</option>
+                            }
                     
-                    }
-                </InputSelect>
-                <button type="submit" class="btn-sm btn-success" onclick="video.load();">Go</button>  
-            </div>
-        </EditForm> 
+                        }
+                    </InputSelect>
+                    <button type="submit" class="btn-sm btn-success" onclick="video.load();">Go</button>  
+                </div>
+            </EditForm> 
+        </div>
     </div>
-</div>
+}
+else
+{
+    <footer class="footer mt-auto py-2 navbar-dark text-white bg-dark fixed-bottom">
+      <div class="container">
+        <div class="row ">
+            <div class="col-4">
+                <button class="btn-sm btn-success" onclick="@PlayHowler">Play</button>  
+            </div
+            <div class="col-4">
+                <button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
+            </div>
+            <div class="col-4">
+                <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
+                    <ValidationSummary />
+                    <div class="mb-3 input-group ">
+                        <InputSelect @bind-Value="requestForm.URL" class="form-control form-select-sm" id="streamName" >
+            
+                            @foreach (var item in streams )
+                            { 
+                                if(item.URL == AppState.StreamURL)
+                                {
+                                    <option selected value="@item.URL">@item.Country: @item.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.URL">@item.Country: @item.Name</option>
+                                }
+                    
+                            }
+                        </InputSelect>
+                        <button type="submit" class="btn-sm btn-success" onclick="video.load();">Go</button>  
+                    </div>
+                </EditForm> 
+            </div>
+        </div>
+        </div>
+    </footer>
+}
+
+
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
 
