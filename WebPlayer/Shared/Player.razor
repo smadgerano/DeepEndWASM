@@ -24,12 +24,12 @@
         <button type="submit" class="btn-sm btn-success" onclick="video.load();">Go</button>  
     </div>
 
-    <figure class="text-center">
-        <!-- 
+        <!-- <figure class="text-center">
+    
         <audio controls autoplay name="media" preload="none" id="streamPlayer">
             <source src="@AppState.StreamURL" type="audio/mpeg">
         </audio>    
-        -->
+    
         <audio controls name="media" preload="none" id="streamPlayer">
             <source src="@AppState.StreamURL" type="audio/mpeg">
         </audio>
@@ -38,12 +38,13 @@
       <figcaption class="blockquote-footer">
         Some things are a bit unstable at the moment, if things go funky just refresh the page.
       </figcaption>
-    </figure>
+    </figure>    -->
 
 </EditForm> 
 </div>
-<br />
-<br />
+
+<button class="btn-sm btn-success" onclick="@PlayHowler">Play</button>  
+<button class="btn-sm btn-danger" onclick="@StopHowler">Stop</button>  
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
@@ -55,11 +56,29 @@
 
     }
 
+    private async Task PlayHowler()
+    {
+        await JS.InvokeVoidAsync("startHowlerPlayer");
+        AppState.IsPlaying = true;
+    }
+
+    private async Task StopHowler()
+    {
+        await JS.InvokeVoidAsync("stopHowlerPlayer");
+        AppState.IsPlaying = false;
+    }
+
     private async Task HandleValidSubmit(EditContext editContext)
     {
-        await JS.InvokeVoidAsync("stopAudioPlayer");
         AppState.StreamURL = requestForm.URL;
-        await JS.InvokeVoidAsync("reloadAudioPlayer");
+        AppState.IsPlaying = false;
+
+        var stream = new List<StreamURL> () { };
+
+        stream.Add(new StreamURL { streamURL = AppState.StreamURL });       
+                
+        await JS.InvokeVoidAsync("switchHowlerStream", stream);
+        AppState.IsPlaying = true;
     }
 
     private RequestForm requestForm = new(){ };
@@ -69,5 +88,10 @@
         public string? Description { get; set; }
         public string? Country { get; set; }
         public string? URL { get; set; }
+    }
+
+    public class StreamURL
+    {
+        public string? streamURL {get; set; }
     }
 }

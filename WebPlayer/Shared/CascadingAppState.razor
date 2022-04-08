@@ -37,6 +37,21 @@
     }
 
     // live state
+    private bool isPlaying = false;
+    public bool IsPlaying
+    {
+        get
+        {
+            return isPlaying;
+        }
+        set
+        {
+            isPlaying = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
     private bool autoPlay = false;
     public bool AutoPlay
     {
