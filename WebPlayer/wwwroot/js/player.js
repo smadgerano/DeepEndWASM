@@ -33,7 +33,3 @@ function switchHowlerStream(url) {
     vol = 0.0;
     sound.fade(0.0, 1.0, 1000);
 }
-
-$("#masterButton").click(function () {
-    $('.transform').toggleClass('transform-active');
-});
