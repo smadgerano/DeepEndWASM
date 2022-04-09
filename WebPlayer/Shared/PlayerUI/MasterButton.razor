@@ -1,11 +1,9 @@
 ﻿@using Microsoft.JSInterop
-@inject IJSRuntime JS;
-
 
 @if (AppState.IsPlaying)
 {
     <div id="masterButton">
-        <span class="h1" style="font-size:@FontSize;" onclick="@StopHowler" id="masterButton">
+        <span class="h1" style="font-size:@FontSize;" onclick="@StopStream" id="masterButton">
             <i class="fa-regular fa-circle-pause" style="color:@FontColour; " ></i>
         </span>
     </div>
@@ -13,12 +11,11 @@
 else
 {
     <div id="masterButton">
-        <span class="h1" style="font-size:@FontSize" onclick="@PlayHowler" >
+        <span class="h1" style="font-size:@FontSize" onclick="@StartStream" >
             <i class="fa-regular fa-circle-play" style="color:@FontColour;" ></i>
         </span> 
     </div>
 }
-
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
@@ -29,20 +26,26 @@ else
     [Parameter]
     public string FontColour { get; set; }
 
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
+
+    private IJSObjectReference _jsModule;
+
     protected override async Task OnInitializedAsync()
     {
-
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/player/components/masterbutton.js");
     }
 
-    private async Task PlayHowler()
+    private async Task StartStream()
     {
-        await JS.InvokeVoidAsync("startHowlerPlayer");
+        string URL = AppState.CurrentStream.URL.ToString();
+        await _jsModule.InvokeVoidAsync("startPlayer", URL);
         AppState.IsPlaying = true;
     }
 
-    private async Task StopHowler()
+    private async Task StopStream()
     {
-        await JS.InvokeVoidAsync("stopHowlerPlayer");
+        await _jsModule.InvokeVoidAsync("stopPlayer");
         AppState.IsPlaying = false;
     }
 }

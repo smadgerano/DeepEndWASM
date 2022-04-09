@@ -67,6 +67,21 @@
     }
 
     // live state
+    private double volume = 1.0;
+    public double Volume
+    {
+        get
+        {
+            return volume;
+        }
+        set
+        {
+            volume = value;
+            StateHasChanged();
+        }
+    }
+
+    // live state
     private bool autoPlay = false;
     public bool AutoPlay
     {

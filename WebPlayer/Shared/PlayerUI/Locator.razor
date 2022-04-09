@@ -1,0 +1,25 @@
+﻿@using Microsoft.JSInterop
+
+
+
+
+
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
+
+    private IJSObjectReference _jsModule;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/player/components/switchstreams.js");
+    }
+
+    private async Task ChangeVolume(ChangeEventArgs args)
+    {
+        await _jsModule.InvokeVoidAsync("setVolume", AppState.Volume);
+    }
+}

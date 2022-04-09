@@ -5,10 +5,14 @@
 {
     <div class="container">
         <div class="row">
-            <div class="col-12" style="text-align: center;">
+            <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
+                <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" > 
+            </div>
+            <div class="col" style="text-align: center;">
                 <WebPlayer.Shared.PlayerUI.MasterButton FontSize="6em" FontColour="#212529e6"/>
             </div>
         </div>
+
         <div class="row">
             <div class="col-4">
                 <EditForm Model="@requestForm" OnValidSubmit="@HandleValidSubmit">
@@ -44,7 +48,7 @@ else
                     <WebPlayer.Shared.PlayerUI.MasterButton FontSize="3.2em" FontColour="#fbfbfb" />
                 </div>
                 <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
-                    <input type="range" class="form-range" min="0" max="1" step="0.01" value="1" id="volumeSlider" onchange="setVolume(this.value)" oninput="setVolume(this.value)" > 
+                    <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" >
                 </div>
                 <div class="col-8 align-items-center">   
                     <div class="row">
@@ -59,6 +63,7 @@ else
     </footer>
 }
 
+<audio controls hidden preload="auto" id="streamSourceElement" name="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg"></audio>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
@@ -70,18 +75,6 @@ else
 
     }
 
-    private async Task PlayHowler()
-    {
-        await JS.InvokeVoidAsync("startHowlerPlayer");
-        AppState.IsPlaying = true;
-    }
-
-    private async Task StopHowler()
-    {
-        await JS.InvokeVoidAsync("stopHowlerPlayer");
-        AppState.IsPlaying = false;
-    }
-
     private async Task HandleValidSubmit(EditContext editContext)
     {
         AppState.StreamURL = requestForm.URL;
@@ -91,7 +84,7 @@ else
 
         stream.Add(new StreamURL { streamURL = AppState.StreamURL });       
                 
-        await JS.InvokeVoidAsync("switchHowlerStream", stream);
+        await JS.InvokeVoidAsync("switchStream", stream);
         AppState.IsPlaying = true;
     }
 
