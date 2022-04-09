@@ -6,7 +6,7 @@
     loop: false
 });
 
-function showValue(newValue) {
+function setVolume(newValue) {
     document.getElementById('volumeSlider').innerHTML = newValue;
     sound.volume(newValue);
 }
@@ -33,3 +33,7 @@ function switchHowlerStream(url) {
     vol = 0.0;
     sound.fade(0.0, 1.0, 1000);
 }
+
+$("#masterButton").click(function () {
+    $('.transform').toggleClass('transform-active');
+});

@@ -4,15 +4,19 @@
 
 @if (AppState.IsPlaying)
 {
-    <span class="h1" style="font-size:@FontSize;" onclick="@StopHowler">
-        <i class="fa-regular fa-circle-pause" style="color:@FontColour;"></i>
-    </span>
+    <div id="masterButton">
+        <span class="h1" style="font-size:@FontSize;" onclick="@StopHowler" id="masterButton">
+            <i class="fa-regular fa-circle-pause" style="color:@FontColour;" ></i>
+        </span>
+    </div>
 }
 else
 {
-    <span class="h1" style="font-size:@FontSize" onclick="@PlayHowler">
-        <i class="fa-regular fa-circle-play" style="color:@FontColour;"></i>
-    </span> 
+    <div id="masterButton">
+        <span class="h1" style="font-size:@FontSize" onclick="@PlayHowler" >
+            <i class="fa-regular fa-circle-play" style="color:@FontColour;" ></i>
+        </span> 
+    </div>
 }
 
 
@@ -32,12 +36,14 @@ else
 
     private async Task PlayHowler()
     {
+       // await JS.InvokeVoidAsync("masterButtonAnimation");
         await JS.InvokeVoidAsync("startHowlerPlayer");
         AppState.IsPlaying = true;
     }
 
     private async Task StopHowler()
     {
+       // await JS.InvokeVoidAsync("masterButtonAnimation");
         await JS.InvokeVoidAsync("stopHowlerPlayer");
         AppState.IsPlaying = false;
     }
