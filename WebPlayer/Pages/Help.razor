@@ -1,6 +1,6 @@
 ﻿@page "/help"
 
-
+ <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.5)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
     <h3>Help / FAQ</h3>
     <br />
     <ul >
@@ -136,7 +136,7 @@
     <br />
     <br />
     <br />
-
+</Animate>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }

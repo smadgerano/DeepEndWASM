@@ -2,36 +2,40 @@
 
 @page "/settings"
 
-<h3>Settings</h3>
+<Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.5)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
 
-<br />
+    <h3>Settings</h3>
 
-<h4>Install the web player?</h4>
+    <br />
 
-<p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
+    <h4>Install the web player?</h4>
 
-<br />
+    <p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
 
-<button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
+    <br />
 
-<br />
-<br />
-<br />
+    <button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
 
-<h4>Notifications</h4>
-<p>Now you're signed up we can send you notifications. You don't have to have these enabled, but in the future there will be functions to notify you when your track is about to be played, or when someone likes your track etc.</p>
+    <br />
+    <br />
+    <br />
 
-<br />
-<button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
-<button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
+    <h4>Notifications</h4>
+    <p>Now you're signed up we can send you notifications. You don't have to have these enabled, but in the future there will be functions to notify you when your track is about to be played, or when someone likes your track etc.</p>
 
-<br />
-<br />
-<br />
-<em>More coming soon...</em>
-<br />
-<br />
-<br />
+    <br />
+    <button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
+    <button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
+
+    <br />
+    <br />
+    <br />
+    <em>More coming soon...</em>
+    <br />
+    <br />
+    <br />
+
+</Animate>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }

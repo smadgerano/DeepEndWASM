@@ -1,10 +1,13 @@
 ﻿@page "/submit"
 
-<h3>Submit a Track</h3>
+ <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.5)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
 
-<p>Upload a track for the radio playlist</p>
-<em>Coming soon...</em>
+    <h3>Submit a Track</h3>
 
+    <p>Upload a track for the radio playlist</p>
+    <em>Coming soon...</em>
+
+</Animate>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }

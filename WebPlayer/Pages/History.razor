@@ -1,8 +1,10 @@
 ﻿@page "/history"
 
-<h3>Track History</h3>
+ <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.5)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
+    <h3>Track History</h3>
 
-<em>Coming soon...</em>
+    <em>Coming soon...</em>
+</Animate>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
