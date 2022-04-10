@@ -15,7 +15,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/player/components/switchstreams.js");
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/switchstreams.js");
     }
 
     private async Task ChangeVolume(ChangeEventArgs args)

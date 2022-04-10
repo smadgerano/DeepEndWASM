@@ -37,7 +37,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/player/components/masterbutton.js");
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/masterbutton.js");
     }
 
     private async Task StartStream()
