@@ -13,13 +13,13 @@ export async function loadWebAudio(){
     gainNode.gain.value = 0.92;
 
 
-    var analyser = context.createAnalyser();
-    analyser.fftSize = 2048;
-    var bufferLength = analyser.frequencyBinCount;
-    var dataArray = new Uint8Array(bufferLength);
-    analyser.getByteTimeDomainData(dataArray);
+    //var analyser = context.createAnalyser();
+    //analyser.fftSize = 2048;
+    //var bufferLength = analyser.frequencyBinCount;
+    //var dataArray = new Uint8Array(bufferLength);
+    //analyser.getByteTimeDomainData(dataArray);
 
-    source.connect(analyser);
+    //source.connect(analyser);
 
     source.connect(gainNode);
 
