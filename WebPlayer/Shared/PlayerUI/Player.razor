@@ -3,7 +3,7 @@
 
 @if (AppState.BigPlayerUI)
 {
-    <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.5)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
+    <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.3)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
     <div class="container">
         <div class="row">
             <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
@@ -42,32 +42,30 @@
     </Animate>
 }
 else
-{
-    
-        <footer class="footer mt-auto py-3 text-white fixed-bottom" style="background-color: #2c3136">
-            <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.5)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
-            <div class="container">           
-                <div class="row align-items-center">
-                    <div class="col-2 align-items-center" style="text-align: right;"> 
-                        <WebPlayer.Shared.PlayerUI.MasterButton FontSize="3.2em" FontColour="#fbfbfb" />
-                    </div>
-                    <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
-                        <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" >
-                    </div>
+{    
+    <footer class="footer mt-auto py-3 text-white fixed-bottom" style="background-color: #2c3136">
+        <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.3)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
+        <div class="container">           
+            <div class="row align-items-center">
+                <div class="col-2 align-items-center" style="text-align: right;"> 
+                    <WebPlayer.Shared.PlayerUI.MasterButton FontSize="3.2em" FontColour="#fbfbfb" />
+                </div>
+                <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
+                    <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" >
+                </div>
                 
-                    <div class="col-8 align-items-center">   
-                        <div class="row">
-                            <span class="h5">Feel The Wrath Of My Beuatiful Screams</span>
-                        </div>
-                        <div class="row pt-0">
-                            <span style="color: #adb5bd;"><em>the Artist Formerly Known As Pasta</em></span>
-                        </div> 
+                <div class="col-8 align-items-center">   
+                    <div class="row">
+                        <span class="h5">Feel The Wrath Of My Beuatiful Screams</span>
                     </div>
+                    <div class="row pt-0">
+                        <span style="color: #adb5bd;"><em>the Artist Formerly Known As Pasta</em></span>
+                    </div> 
                 </div>
             </div>
-            </Animate>
-        </footer>
-    
+        </div>
+        </Animate>
+    </footer>    
 }
 
 <audio controls hidden preload="auto" id="streamSourceElement" name="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg"></audio>
