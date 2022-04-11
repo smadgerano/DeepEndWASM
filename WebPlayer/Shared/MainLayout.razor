@@ -1,7 +1,10 @@
-﻿@using Append.Blazor.Notifications
+﻿@using Microsoft.JSInterop
+@using System.Runtime.InteropServices
+@using Append.Blazor.Notifications
 @inject INotificationService NotificationService
 @inherits LayoutComponentBase
 @inject NavigationManager NavManager
+
 
 <!-- <style>
     body { padding-top: 55px; padding-bottom: 110px; }
@@ -20,6 +23,11 @@
     </main>
 </div>
 
+<input type="hidden" id="masterVolume" @bind-value="@AppState.Volume" >
+
+<div id="streamURL" hidden>@AppState.StreamURL</div>
+
+<audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
@@ -33,8 +41,17 @@
         }
     }
 
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
+
+    private IJSObjectReference _jsModule;
+
     protected override async Task OnInitializedAsync()
     {
-        //ClockTick();        
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/webaudio.js");
+
+        await _jsModule.InvokeVoidAsync("loadWebAudio");
+
+        //ClockTick();
     }
 }

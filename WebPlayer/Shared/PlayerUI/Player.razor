@@ -1,4 +1,5 @@
 ﻿@using Microsoft.JSInterop
+@using System.Runtime.InteropServices
 
 @if (AppState.BigPlayerUI)
 {
@@ -7,6 +8,8 @@
         <div class="row">
             <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
                 <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" > 
+               <!--  <br /> 
+                <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" @bind-value="@AppState.Volume" id="waapiVolumeSlider" > -->
             </div>
             <div class="col" style="text-align: center;">
                 <WebPlayer.Shared.PlayerUI.MasterButton FontSize="6em" FontColour="#212529e6"/>
@@ -52,7 +55,9 @@ else
                     <WebPlayer.Shared.PlayerUI.MasterButton FontSize="3.2em" FontColour="#fbfbfb" />
                 </div>
                 <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
-                    <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" >
+                   <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="volumeSlider" @bind-value="@AppState.Volume"  oninput="setVolume(this.value)" >
+                   <!--   <br />
+                    <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" @bind-value="@AppState.Volume" id="waapiVolumeSlider" > -->
                 </div>
                 
                 <div class="col-8 align-items-center">   
@@ -68,10 +73,13 @@ else
          
         </Animate>
     </footer>    
-   
 }
 
-<audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>
+@*<input style="visibility:hidden" type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="masterVolume" @bind-value="@AppState.Volume" >
+
+<div id="streamURL" hidden>@AppState.StreamURL</div>
+
+<audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>*@
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
@@ -85,10 +93,19 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/webaudio.js");
+        //_jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/webaudio.js");
 
-        await _jsModule.InvokeVoidAsync("loadWebAudio");
+        //await _jsModule.InvokeVoidAsync("loadWebAudio");
     }
+
+
+
+            
+    //[JSInvokable("UpdateVolumeState")]
+    //public void UpdateVolumeState(double volume)
+    //{
+    //    AppState.Volume = volume;
+    //}
 
 
 
@@ -100,7 +117,7 @@ else
         //var stream = new List<StreamURL> () { };
 
         //stream.Add(new StreamURL { streamURL = AppState.StreamURL });       
-                
+
         //await JS.InvokeVoidAsync("switchStream", stream);
         //AppState.IsPlaying = true;
     }
@@ -118,4 +135,5 @@ else
     {
         public string? streamURL {get; set; }
     }
+
 }

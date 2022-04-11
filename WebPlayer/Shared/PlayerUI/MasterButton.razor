@@ -4,8 +4,8 @@
 {
     <!-- <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.2)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut"> -->
         <div id="masterButton">
-            <span class="h1" style="font-size:@FontSize;" onclick="@StopStream" id="masterButton">
-                <i class="fa-regular fa-circle-pause" style="color:@FontColour; " ></i>
+            <span class="h1" style="font-size:@FontSize;" onclick="@StopStream">
+                <i id="masterButtonIcon" class="fa-regular fa-circle-pause" style="color:@FontColour; " ></i>
             </span>
         </div>
    <!-- </Animate> -->
@@ -15,7 +15,7 @@ else
     <!-- <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.2)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut"> -->
         <div id="masterButton">
             <span class="h1" style="font-size:@FontSize" onclick="@StartStream" >
-                <i class="fa-regular fa-circle-play" style="color:@FontColour;" ></i>
+                <i id="masterButtonIcon" class="fa-regular fa-circle-play" style="color:@FontColour;" ></i>
             </span> 
         </div>
     <!-- </Animate> -->
@@ -38,6 +38,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/masterbutton.js");
+
     }
 
     private async Task StartStream()
