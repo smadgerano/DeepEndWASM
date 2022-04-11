@@ -6,10 +6,38 @@
     let gainNode = context.createGain();
 
     source.connect(gainNode);
-    gainNode.connect(context.destination);
+    //gainNode.connect(context.destination);
+
+    //var masterVolume = document.getElementById('masterVolume');
+    //var volumeLevel = masterVolume.value;
 
 
-    //document.getElementById('masterVolume').addEventListener('input', function () {
+    var compressor = context.createDynamicsCompressor();
+    compressor.threshold.setValueAtTime(-50, context.currentTime);
+    compressor.knee.setValueAtTime(40, context.currentTime);
+    compressor.ratio.setValueAtTime(12, context.currentTime);
+    compressor.attack.setValueAtTime(0.2, context.currentTime);
+    compressor.release.setValueAtTime(0.25, context.currentTime);
+
+    gainNode.connect(compressor);
+
+    compressor.connect(context.destination);
+
+
+
+    //Object.defineProperty(masterVolume, "value", {
+    //    set(newValue) {
+    //        console.log(newValue);
+    //        //volumeLevel = newValue;
+    //        //gainNode.gain.value = newValue;
+    //    },
+    //    get() {
+    //        return value;
+    //    }
+    //});
+
+
+    //document.getElementById('masterVolume').addEventListener('change', function () {
     //    gainNode.gain.value = this.value;
 
     //    // document.getElementById('volumeSlider').value = this.value;
