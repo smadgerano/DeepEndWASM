@@ -1,4 +1,8 @@
-﻿namespace WebPlayer.Data
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace RadioCore
 {
     public class Appreciation
     {

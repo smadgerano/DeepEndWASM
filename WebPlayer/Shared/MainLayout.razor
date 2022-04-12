@@ -17,12 +17,11 @@
 
     <main>
         <article class="content px-4">
-            <WebPlayer.Shared.PlayerUI.Player />
+            <Player />
             @Body
         </article>
     </main>
 </div>
-
 
 <div id="streamURL" hidden>@AppState.StreamURL</div>
 
@@ -47,7 +46,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/webaudio.js");
+        _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/audiostack.js");
 
         await _jsModule.InvokeVoidAsync("loadWebAudio");
 

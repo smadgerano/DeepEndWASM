@@ -1,6 +1,10 @@
-﻿namespace WebPlayer.Data
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace RadioCore
 {
-    public class Track
+    public class Album
     {
         public Guid? Id { get; set; } = Guid.Empty;
 
@@ -8,9 +12,7 @@
 
         public string? ArtistName { get; set; } = "";
 
-        public string? TrackName { get; set; } = "";
-
-        public TimeSpan? Duration { get; set; } = TimeSpan.Zero;
+        public string? AlbumName { get; set; } = "";
 
         public DateTime? Released { get; set; }
 
@@ -18,8 +20,8 @@
 
         public string? Description { get; set; } = string.Empty;
 
-        public Guid? Album { get; set; } = Guid.Empty;
-
         public string? Art { get; set; } = "";
+
+        public List<Guid>? Tracks { get; set; } = new List<Guid>();
     }
 }

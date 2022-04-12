@@ -5,7 +5,13 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebPlayer", "WebPlayer\WebPlayer.csproj", "{991BA27F-61D4-4E39-867D-BEC9B6A9E36B}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "RadioCore", "RadioCore\RadioCore.shproj", "{989205E9-7F8D-4316-A20F-07F837CA8CCF}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		RadioCore\RadioCore.projitems*{989205e9-7f8d-4316-a20f-07f837ca8ccf}*SharedItemsImports = 13
+		RadioCore\RadioCore.projitems*{991ba27f-61d4-4e39-867d-bec9b6a9e36b}*SharedItemsImports = 5
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

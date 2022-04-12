@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>989205e9-7f8d-4316-a20f-07f837ca8ccf</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>RadioCore</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Album.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Appreciation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Artist.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Genre.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Globals.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StreamSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Track.cs" />
+  </ItemGroup>
+</Project>

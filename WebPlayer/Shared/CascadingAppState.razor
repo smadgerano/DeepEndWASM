@@ -97,8 +97,8 @@
     }
 
     // live state
-    private Data.Player.Type playerUIType = Data.Player.Type.FullPageMedium;
-    public Data.Player.Type PlayerUIType
+    private RadioCore.Player.Type playerUIType = RadioCore.Player.Type.FullPageMedium;
+    public RadioCore.Player.Type PlayerUIType
     {
         get
         {
@@ -127,8 +127,8 @@
     }
 
     // live state
-    private Data.Track playingNow = new Data.Track();
-    public Data.Track PlayingNow
+    private RadioCore.Track playingNow = new RadioCore.Track();
+    public RadioCore.Track PlayingNow
     {
         get
         {
@@ -142,8 +142,8 @@
     }
 
     // live state
-    private Data.Track playingNext = new Data.Track();
-    public Data.Track PlayingNext
+    private RadioCore.Track playingNext = new RadioCore.Track();
+    public RadioCore.Track PlayingNext
     {
         get
         {
@@ -157,8 +157,8 @@
     }
 
     // live state
-    private List<Data.Track> playHistory = new List<Data.Track>();
-    public List<Data.Track> PlayHistory
+    private List<RadioCore.Track> playHistory = new List<RadioCore.Track>();
+    public List<RadioCore.Track> PlayHistory
     {
         get
         {
@@ -187,8 +187,8 @@
     }
 
     // live state
-    private Data.StreamSource currentStream = new Data.StreamSource(){ URL = "https://deependswamp.ddns.net:8443/deepend", Name="ClusterFox", Country="USA", Description= ""};
-    public Data.StreamSource CurrentStream
+    private RadioCore.StreamSource currentStream = new RadioCore.StreamSource(){ URL = "https://deependswamp.ddns.net:8443/deepend", Name="ClusterFox", Country="USA", Description= ""};
+    public RadioCore.StreamSource CurrentStream
     {
         get
         {
