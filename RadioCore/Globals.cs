@@ -101,8 +101,8 @@ namespace RadioCore
             var list = new List<StreamSource>();
 
             //list.Add(new StreamSource() { Name = @"smadger internal", Country = "UK", Description = @"", URL = @"http://192.168.1.14:8000/radio" });
-            list.Add(new StreamSource() { Name = @"smadger", Country = "UK", Description = @"", URL = @"https://deepend.ddns.net/stream" });
-            list.Add(new StreamSource() { Name = @"ClusterFox", Country = "USA", Description = @"", URL = @"https://deependswamp.ddns.net:8443/deepend" });
+            list.Add(new StreamSource() { Name = @"smadger", Country = "UK", Description = @"192k", URL = @"https://deepend.ddns.net/stream" });
+            list.Add(new StreamSource() { Name = @"ClusterFox", Country = "USA", Description = @"320k", URL = @"https://deependswamp.ddns.net:8443/deepend" });
 
             return list;
         }

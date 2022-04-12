@@ -28,14 +28,13 @@
         var masterButtonIcon = document.getElementById('masterButtonIconLarge');
         var stream = document.getElementById('streamSourceElement');
         var source = document.getElementById('streamURL').innerHTML;
+        var userVolume = document.getElementById('waapiVolumeSliderBigUI');
 
         if (masterButtonIcon.classList.contains('fa-circle-pause')) {
-            console.log(source);
             stream.pause();
             stream.src = "";
             stream.load();
         } else {
-            console.log(source);
             stream.src = source;
             stream.load();
             stream.play();
@@ -46,17 +45,42 @@
         var masterButtonIcon = document.getElementById('masterButtonIconSmall');
         var stream = document.getElementById('streamSourceElement');
         var source = document.getElementById('streamURL').innerHTML;
+        var userVolume = document.getElementById('waapiVolumeSliderSmallUI');
 
         if (masterButtonIcon.classList.contains('fa-circle-pause')) {
-            console.log(source);
             stream.pause();
             stream.src = "";
             stream.load();
         } else {
-            console.log(source);
             stream.src = source;
             stream.load();
             stream.play();
         }
     });
+
+
+    // this is all bullshit apparently?????
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function fadeIn(currentVol) {
+        var v = 0.00;
+        while (v < currentVol) {
+            gainNode.gain.value = v;
+            console.log(v);
+            v + 0.01;
+            await sleep(100);
+        }
+    }
+
+    async function fadeOut(currentVol) {
+        var v = currentVol;
+        while (v > 0.00) {
+            gainNode.gain.value = v;
+            console.log(v);
+            v - 0.01;
+            await sleep(100);
+        }
+    }
 }
