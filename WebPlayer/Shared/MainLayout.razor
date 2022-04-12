@@ -24,6 +24,7 @@
     </main>
 </div>
 
+
 <div id="streamURL" hidden>@AppState.CurrentStream.URL</div>
 <div id="dspGlobalEnable" hidden>@AppState.DspGlobalEnable</div>
 <div id="isPlaying" hidden>@AppState.IsPlaying</div>
@@ -33,14 +34,7 @@
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
 
-    protected async Task ClockTick()
-    {
-        var periodicTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
-        while (await periodicTimer.WaitForNextTickAsync())
-        {
-            AppState.Clock = DateTime.UtcNow;
-        }
-    }
+    public List<RadioCore.StreamSource> defaultStreams = RadioCore.Globals.StreamSources();
 
     [Inject]
     public IJSRuntime JSRuntime { get; set; }
@@ -53,8 +47,6 @@
 
         if(storedStream  is null)
         {
-            List<RadioCore.StreamSource> defaultStreams = RadioCore.Globals.StreamSources();
-
             storedStream = defaultStreams.Where(x => x.SystemDefault is true).First();
 
             await localSotrage.SetItemAsync("storedStream", storedStream);
@@ -81,5 +73,14 @@
 
         //ClockTick();
     }  
+
+    protected async Task ClockTick()
+    {
+        var periodicTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+        while (await periodicTimer.WaitForNextTickAsync())
+        {
+            AppState.Clock = DateTime.UtcNow;
+        }
+    }
 
 }

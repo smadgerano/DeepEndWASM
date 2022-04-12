@@ -22,8 +22,7 @@
       "allowedRoles": [ "authenticated" ]
     },
     {
-      "route": "/settings",
-      "allowedRoles": [ "authenticated" ]
+      "route": "/settings"
     },
     {
       "route": "/submit",

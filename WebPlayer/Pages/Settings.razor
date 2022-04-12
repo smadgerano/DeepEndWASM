@@ -1,4 +1,5 @@
-﻿@inject INotificationService NotificationService
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@inject INotificationService NotificationService
 @inject Blazored.LocalStorage.ISyncLocalStorageService localSotrage
 @inject NavigationManager Navigation
 
@@ -12,7 +13,7 @@
 
     <h4>Clear the local cache</h4>
 
-    <p>If things go funky and you settings aren't changing corectly, you can try clearing the local cache, might not help, but worth a go. You should also refresh the page afterwards.</p>
+    <p>If things go funky and you settings aren't changing corectly, you can try clearing the local cache and resetting everything to default (local settings only, your account and password etc wont get touched), might not help, but worth a go. You should also refresh the page afterwards.</p>
 
     <br />
 
@@ -34,23 +35,28 @@
     <br />
     <br />
 
-    <h4>Notifications</h4>
-    <p>These, like the whole web player, work best on desktop. Your mileage may vaey on mobile. You don't have to have these enabled, but in the future there will be functions to notify you when your track is about to be played, or when someone likes your track etc. If you want them enabled, you can try it here.</p>
+    <AuthorizeView>
+        <Authorized>
+        <h4>Notifications</h4>
+        <p>These, like the whole web player, work best on desktop. Your mileage may vaey on mobile. You don't have to have these enabled, but in the future there will be functions to notify you when your track is about to be played, or when someone likes your track etc. If you want them enabled, you can try it here.</p>
 
-    <br />
-    <button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
-    <button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
+        <br />
+        <button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
+        <button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
 
-    <br />
-    <br />
-    <br />
-    <em>More coming soon...</em>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
+        <br />
+        <br />
+        <br />
+        <em>More coming soon...</em>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </Authorized>
+    <NotAuthorized>
+    </NotAuthorized>
+</AuthorizeView>
 </Animate>
 
 @code {
