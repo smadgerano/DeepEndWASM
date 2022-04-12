@@ -1,4 +1,6 @@
 ﻿@inject INotificationService NotificationService
+@inject Blazored.LocalStorage.ISyncLocalStorageService localSotrage
+@inject NavigationManager Navigation
 
 @page "/settings"
 
@@ -6,6 +8,18 @@
 
     <h3>Settings</h3>
 
+    <br />
+
+    <h4>Clear the local cache</h4>
+
+    <p>If things go funky and you settings aren't changing corectly, you can try clearing the local cache, might not help, but worth a go. You should also refresh the page afterwards.</p>
+
+    <br />
+
+    <button type="button" class="btn btn-warning"  id="install_button" @onclick="@ClearCache"> <i class="fa-regular fa-trash-can"></i> Clear Storage</button>
+
+    <br />
+    <br />
     <br />
 
     <h4>Install the web player?</h4>
@@ -48,12 +62,18 @@
         AppState.UiReady = true;       
     }
 
+    private void ClearCache()
+    {
+        localSotrage.RemoveItem("storedStream");
+        localSotrage.RemoveItem("dspGlobalEnabled");
+    }
+
     private async void RequestNotificationPermission()
     {
         PermissionType permission = await NotificationService.RequestPermissionAsync();  
     }
 
-    private  async void TriggerNotification()
+    private async void TriggerNotification()
     {
         NotificationOptions options = new NotificationOptions
         {
