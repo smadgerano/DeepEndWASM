@@ -16,6 +16,22 @@
     compressor.connect(gainNode);
     gainNode.connect(context.destination);
 
+
+    // EQ / Filters
+
+    // DSP modules on / off
+
+    // DSP presets
+
+    // Later
+    // =====
+    // Fade ins and outs
+    // CPU monitoring
+    // Static samples - a la deep end
+    // Sliders for DSP controls
+
+
+
     document.getElementById('waapiVolumeSliderBigUI').addEventListener('input', function () {
         gainNode.gain.value = this.value;
     });

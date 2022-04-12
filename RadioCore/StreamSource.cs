@@ -12,6 +12,14 @@ namespace RadioCore
 
         public string? Country { get; set; }
 
+        public string? Rate { get; set; }
+
         public string? URL { get; set; }
+
+        public bool? Metadata { get; set; }
+
+        public bool? SystemDefault { get; set; }
+
+        public bool? UserDefault { get; set; }
     }
 }

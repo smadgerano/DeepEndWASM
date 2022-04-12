@@ -4,6 +4,7 @@
 @inject INotificationService NotificationService
 @inherits LayoutComponentBase
 @inject NavigationManager NavManager
+@inject Blazored.LocalStorage.ILocalStorageService localSotrage
 
 
 <!-- <style>
@@ -23,7 +24,9 @@
     </main>
 </div>
 
-<div id="streamURL" hidden>@AppState.StreamURL</div>
+<div id="streamURL" hidden>@AppState.CurrentStream.URL</div>
+<div id="dspGlobalEnable" hidden>@AppState.DspGlobalEnable</div>
+<div id="isPlaying" hidden>@AppState.IsPlaying</div>
 
 <audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>
 
@@ -46,10 +49,37 @@
 
     protected override async Task OnInitializedAsync()
     {
+        RadioCore.StreamSource storedStream = await localSotrage.GetItemAsync<RadioCore.StreamSource>("storedStream");
+
+        if(storedStream  is null)
+        {
+            List<RadioCore.StreamSource> defaultStreams = RadioCore.Globals.StreamSources();
+
+            storedStream = defaultStreams.Where(x => x.SystemDefault is true).First();
+
+            await localSotrage.SetItemAsync("storedStream", storedStream);
+        }
+
+        AppState.CurrentStream = storedStream;
+
+
+        bool? dspGlobalEnable = await localSotrage.GetItemAsync<bool?>("dspGlobalEnabled");
+
+        if(dspGlobalEnable  is null)
+        {
+            await localSotrage.SetItemAsync("dspGlobalEnabled", false);
+        }
+
+        AppState.DspGlobalEnable = Convert.ToBoolean(dspGlobalEnable);
+
+
+
+
         _jsModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./js/audiostack.js");
 
         await _jsModule.InvokeVoidAsync("loadWebAudio");
 
         //ClockTick();
-    }
+    }  
+
 }

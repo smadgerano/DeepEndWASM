@@ -171,23 +171,19 @@
         }
     }
 
-    // live state
-    private string streamURL = "https://deependswamp.ddns.net:8443/deepend";
-    public string StreamURL
-    {
-        get
-        {
-            return streamURL;
-        }
-        set
-        {
-            streamURL = value;
-            StateHasChanged();
-        }
-    }
 
-    // live state
-    private RadioCore.StreamSource currentStream = new RadioCore.StreamSource(){ URL = "https://deependswamp.ddns.net:8443/deepend", Name="ClusterFox", Country="USA", Description= ""};
+    // Storage State Backed Live State
+    private RadioCore.StreamSource currentStream = new StreamSource()
+        {
+            Name = @"ClusterFox",
+            Country = "USA",
+            Description = @"2",
+            Rate = @"320k",
+            Metadata = false,
+            SystemDefault = true,
+            UserDefault = false,
+            URL = @"https://deependswamp.ddns.net:8443/deepend"
+        };
     public RadioCore.StreamSource CurrentStream
     {
         get
@@ -197,6 +193,21 @@
         set
         {
             currentStream = value;
+            StateHasChanged();
+        }
+    }
+
+    // Storage State Backed Live State
+    private bool dspGlobalEnable = false;
+    public bool DspGlobalEnable
+    {
+        get
+        {
+            return dspGlobalEnable;
+        }
+        set
+        {
+            dspGlobalEnable = value;
             StateHasChanged();
         }
     }
