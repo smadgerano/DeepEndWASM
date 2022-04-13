@@ -6,11 +6,11 @@
     let gainNode = context.createGain();
 
     var compressor = context.createDynamicsCompressor();
-    compressor.threshold.setValueAtTime(-50, context.currentTime);
-    compressor.knee.setValueAtTime(40, context.currentTime);
-    compressor.ratio.setValueAtTime(12, context.currentTime);
-    compressor.attack.setValueAtTime(0.2, context.currentTime);
-    compressor.release.setValueAtTime(0.25, context.currentTime);
+    compressor.threshold.setValueAtTime(-20, context.currentTime);
+    compressor.knee.setValueAtTime(10, context.currentTime);
+    compressor.ratio.setValueAtTime(3, context.currentTime);
+    compressor.attack.setValueAtTime(0.02, context.currentTime);
+    compressor.release.setValueAtTime(0.2, context.currentTime);
 
     source.connect(compressor);
     compressor.connect(gainNode);
@@ -19,8 +19,7 @@
 
     // EQ / Filters
 
-    // DSP modules on / off
-
+  
     // DSP presets
 
     // Later
@@ -60,7 +59,7 @@
     document.getElementById('masterButtonSmall').addEventListener('click', function () {
         var masterButtonIcon = document.getElementById('masterButtonIconSmall');
         var stream = document.getElementById('streamSourceElement');
-        var source = document.getElementById('streamURL').innerHTML;
+        var sourceURL = document.getElementById('streamURL').innerHTML;
         var userVolume = document.getElementById('waapiVolumeSliderSmallUI');
 
         if (masterButtonIcon.classList.contains('fa-circle-pause')) {
@@ -68,11 +67,51 @@
             stream.src = "";
             stream.load();
         } else {
-            stream.src = source;
+            stream.src = sourceURL;
             stream.load();
             stream.play();
         }
     });
+
+
+    document.getElementById('dspGlobalEnableButtonLarge').addEventListener('click', function () {
+        var isPlaying = document.getElementById('isPlaying').innerHTML;
+        var dspEnabled = localStorage.getItem('dspGlobalEnabled');
+
+        if (dspEnabled != "true") {
+
+            if (isPlaying == "true") {
+                //stream.pause();
+                source.disconnect(gainNode);
+
+                source.connect(compressor);
+                compressor.connect(gainNode);
+                gainNode.connect(context.destination);
+                //stream.play();
+            } else {
+                source.disconnect(gainNode);
+
+                source.connect(compressor);
+                compressor.connect(gainNode);
+                gainNode.connect(context.destination);;
+            }
+
+        } else {
+            if (isPlaying == "true") {
+                //stream.pause();
+                source.disconnect(compressor);
+                source.connect(gainNode);
+                gainNode.connect(context.destination)
+                //stream.play();
+            } else {
+                source.disconnect(compressor);
+                source.connect(gainNode);
+                gainNode.connect(context.destination);
+
+            }
+        }
+    });
+
 
 
     // this is all bullshit apparently?????
