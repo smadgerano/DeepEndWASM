@@ -19,7 +19,21 @@
 
     // EQ / Filters
 
-  
+    // Presets:
+    // --------
+    // 0 - clean
+    // 1- Classic FM - levleller, tiny EQ boosts
+    // compressor.threshold.setValueAtTime(-20, context.currentTime);
+    // compressor.knee.setValueAtTime(10, context.currentTime);
+    // compressor.ratio.setValueAtTime(3, context.currentTime);
+    // compressor.attack.setValueAtTime(0.02, context.currentTime);
+    // compressor.release.setValueAtTime(0.2, context.currentTime);
+    // radio gain variable?
+
+    // 2 - smasher
+    // 3 - old timer
+    // 4 - 200 - 2k
+
     // DSP presets
 
     // Later
