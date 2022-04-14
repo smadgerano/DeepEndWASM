@@ -52,7 +52,7 @@ else
     </div>
     <div class="row">
         <br /> 
-        <div class="mb-3 col-6">
+        <div class="mb-3 col">
             <label for="dspPresetSelector" class="form-label"> <i id="dspGlobalEnableButtonIconLarge" class="fa-solid fa-microchip" style="color:#212529e6;"  ></i> DSP Mode</label>
             <select id="dspPresetSelector" class="form-select form-select-sm" aria-label=".form-select-sm example">
                 <option selected value="1">Disabled</option>
@@ -61,7 +61,7 @@ else
                 <option value="3">Pirate Phattness</option>
             </select>
         </div>
-        <div class="mb-3 col-6">
+        <div class="mb-3 col">
             <label for="streamSelectoDropListr" class="form-label"> <i class="fa-solid fa-earth-europe" style="color:#212529e6;"  ></i> Source Stream</label>
             <select id="streamSelectoDropListr" class="form-select form-select-sm" aria-label=".form-select-sm example">
                 @foreach(StreamSource s in streams.Where(x => x.URL.StartsWith("https")))
@@ -108,7 +108,7 @@ else
     </Animate>
 </footer>    
 
-<br />
+<!-- <br />
 <br />
 @AppState.CurrentStream.Country <br />
 @AppState.CurrentStream.Name <br />
@@ -119,7 +119,7 @@ else
 <br />
 <br />
 
-<!-- @AppState.DspPreset <br /> -->
+@AppState.DspPreset <br /> -->
 <br />
 <br />
 <br />

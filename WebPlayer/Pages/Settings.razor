@@ -71,10 +71,25 @@
 
     private void ClearCache()
     {
-        localSotrage.RemoveItem("storedStream");
-        localSotrage.RemoveItem("dspGlobalEnabled");
-        localSotrage.RemoveItem("dspCompressorEnable");
-        localSotrage.RemoveItem("dspPreset");;
+        try
+        {
+            localSotrage.RemoveItem("storedStream");
+        }catch { }
+
+        try
+        {
+            localSotrage.RemoveItem("dspGlobalEnabled");
+        }catch { }
+
+        try
+        {
+            localSotrage.RemoveItem("dspCompressorEnable");
+        } catch { }
+
+        try
+        {
+            localSotrage.RemoveItem("dspPreset");
+        } catch { }
     }
 
     private async void RequestNotificationPermission()

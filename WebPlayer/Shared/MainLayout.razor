@@ -25,11 +25,11 @@
 </div>
 
 
-<div id="streamURL" hidden>@AppState.CurrentStream.URL</div>
-
 <div id="isPlaying" hidden>@AppState.IsPlaying</div>
 
-<!-- <div id="dspPreset" hidden>@AppState.DspPreset</div>
+<!-- 
+    <div id="streamURL" hidden>@AppState.CurrentStream.URL</div>
+<div id="dspPreset" hidden>@AppState.DspPreset</div>
 <div id="dspGlobalEnable" hidden>@AppState.DspGlobalEnable</div> -->
 
 <audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>
@@ -50,14 +50,14 @@
 
         
         
-        if(storedStream  is null)
-        {
-            storedStream = defaultStreams.Where(x => x.SystemDefault is true).First();
+        //if(storedStream  is null)
+        //{
+        //    storedStream = defaultStreams.Where(x => x.SystemDefault is true).First();
 
-            await localSotrage.SetItemAsync("storedStream", storedStream);
-        }
+        //    await localSotrage.SetItemAsync("storedStream", storedStream);
+        //}
 
-        AppState.CurrentStream = storedStream;
+        //AppState.CurrentStream = storedStream;
 
 
 
