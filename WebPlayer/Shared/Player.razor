@@ -158,9 +158,8 @@ else
         //await _jsModule.InvokeVoidAsync("loadWebAudio");
     }
 
-    List<StreamSource> streams = Globals.StreamSources();
+    List<RadioCore.StreamSource> streams = Globals.StreamSources();
     
-
     private async Task TogglePlayState()
     {
         if (AppState.IsPlaying)
