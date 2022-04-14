@@ -211,4 +211,36 @@
             StateHasChanged();
         }
     }
+
+    // Storage State Backed Live State
+    private bool dspCompressorEnable = false;
+    public bool DspCompressorEnable
+    {
+        get
+        {
+            return dspCompressorEnable;
+        }
+        set
+        {
+            dspCompressorEnable = value;
+            StateHasChanged();
+        }
+    }
+
+    // Storage State Backed Live State
+    private string dspPreset = "Flat";
+    public string DspPreset
+    {
+        get
+        {
+            return dspPreset;
+        }
+        set
+        {
+            dspPreset = value;
+            StateHasChanged();
+        }
+    }
 }
+
+

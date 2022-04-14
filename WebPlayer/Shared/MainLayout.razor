@@ -26,8 +26,11 @@
 
 
 <div id="streamURL" hidden>@AppState.CurrentStream.URL</div>
-<div id="dspGlobalEnable" hidden>@AppState.DspGlobalEnable</div>
+
 <div id="isPlaying" hidden>@AppState.IsPlaying</div>
+
+<!-- <div id="dspPreset" hidden>@AppState.DspPreset</div>
+<div id="dspGlobalEnable" hidden>@AppState.DspGlobalEnable</div> -->
 
 <audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>
 
@@ -45,6 +48,8 @@
     {
         RadioCore.StreamSource storedStream = await localSotrage.GetItemAsync<RadioCore.StreamSource>("storedStream");
 
+        
+        
         if(storedStream  is null)
         {
             storedStream = defaultStreams.Where(x => x.SystemDefault is true).First();
@@ -55,14 +60,40 @@
         AppState.CurrentStream = storedStream;
 
 
-        bool? dspGlobalEnable = await localSotrage.GetItemAsync<bool?>("dspGlobalEnabled");
 
-        if(dspGlobalEnable  is null)
-        {
-            await localSotrage.SetItemAsync("dspGlobalEnabled", false);
-        }
 
-        AppState.DspGlobalEnable = Convert.ToBoolean(dspGlobalEnable);
+        //bool? dspGlobalEnable = await localSotrage.GetItemAsync<bool?>("dspGlobalEnabled");
+
+        //if(dspGlobalEnable  is null)
+        //{
+        //    await localSotrage.SetItemAsync("dspGlobalEnabled", false);
+        //}
+
+        //AppState.DspGlobalEnable = Convert.ToBoolean(dspGlobalEnable);
+
+
+
+
+        //bool? dspCompressorEnable = await localSotrage.GetItemAsync<bool?>("dspCompressorEnable");
+
+        //if(dspCompressorEnable  is null)
+        //{
+        //    await localSotrage.SetItemAsync("dspCompressorEnable", false);
+        //}
+
+        //AppState.DspCompressorEnable = Convert.ToBoolean(dspGlobalEnable);
+
+
+
+
+        //string? dspPreset = await localSotrage.GetItemAsync<string?>("dspPreset");
+
+        //if(dspPreset  is null)
+        //{
+        //    await localSotrage.SetItemAsync("dspPreset", "Flat");
+        //}
+
+        //AppState.DspPreset = dspPreset;
 
 
 
