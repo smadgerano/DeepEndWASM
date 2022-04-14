@@ -34,6 +34,33 @@ else
 
 <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.3)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
     <div class="container" style="visibility:@showBigPlayer">
+
+         <div class="row">
+        <br /> 
+        <div class="mb-3 col">
+            <label for="dspPresetSelector" class="form-label"> <i id="dspGlobalEnableButtonIconLarge" class="fa-solid fa-microchip" style="color:#212529e6;"  ></i> DSP Mode</label>
+            <select id="dspPresetSelector" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected value="1">Disabled</option>
+                <option value="2">FM Sparkle</option>
+                <option value="3">AM Vibes</option>
+                <option value="3">Pirate Phattness</option>
+            </select>
+        </div>
+        <div class="mb-3 col">
+            <label for="streamSelectoDropListr" class="form-label"> <i class="fa-solid fa-earth-europe" style="color:#212529e6;"  ></i> Source Stream</label>
+            <select id="streamSelectoDropListr" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                @foreach(StreamSource s in streams)
+                {
+                    <option value="@s.URL">@s.Country@s.Description - @s.Name - @s.Rate</option>
+                }
+                <!-- @foreach(StreamSource s in streams.Where(x => x.URL.StartsWith("https")))
+                {
+                    <option value="@s.URL">@s.Country@s.Description - @s.Name - @s.Rate</option>
+                } -->
+            </select>
+        </div>
+    </div>
+
         <div class="row">
 
         </div>
@@ -50,27 +77,7 @@ else
             </div>
         </div>
     </div>
-    <div class="row">
-        <br /> 
-        <div class="mb-3 col">
-            <label for="dspPresetSelector" class="form-label"> <i id="dspGlobalEnableButtonIconLarge" class="fa-solid fa-microchip" style="color:#212529e6;"  ></i> DSP Mode</label>
-            <select id="dspPresetSelector" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected value="1">Disabled</option>
-                <option value="2">FM Sparkle</option>
-                <option value="3">AM Vibes</option>
-                <option value="3">Pirate Phattness</option>
-            </select>
-        </div>
-        <div class="mb-3 col">
-            <label for="streamSelectoDropListr" class="form-label"> <i class="fa-solid fa-earth-europe" style="color:#212529e6;"  ></i> Source Stream</label>
-            <select id="streamSelectoDropListr" class="form-select form-select-sm" aria-label=".form-select-sm example">
-                @foreach(StreamSource s in streams.Where(x => x.URL.StartsWith("https")))
-                {
-                    <option value="@s.URL">@s.Country@s.Description - @s.Name - @s.Rate</option>
-                }
-            </select>
-        </div>
-    </div>
+   
 
    <!-- <div id="dspGlobalEnableButtonLarge" onclick="@ToggleGlobalDSP">
         <span class="h1" style="font-size:1.5em;">
