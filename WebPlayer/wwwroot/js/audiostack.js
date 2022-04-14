@@ -60,11 +60,11 @@
     document.getElementById('dspPresetSelector').addEventListener('change', function () {
         //var preset = document.getElementById('dspPreset');
         var e = document.getElementById("dspPresetSelector");
-        var selected = e.options[e.selectedIndex].text;
+        var selected = e.options[e.selectedIndex].value;
         //console.log(selected);
 
         switch (selected) {
-            case "Disabled":
+            case "1":
 
                 globalDSPDisable();
 
@@ -72,7 +72,7 @@
                 masterGain.connect(context.destination);
 
                 break;
-            case "FM Sparkle":
+            case "2":
 
                 globalDSPDisable();
 
@@ -96,7 +96,7 @@
 
                 gainCompensator.gain.value = 0.85;
                 break;
-            case "AM Vibes":
+            case "3":
 
                 globalDSPDisable();
 
@@ -127,7 +127,7 @@
                 gainCompensator.gain.value = 0.9;
 
                 break;
-            case "Pirate Phattness":
+            case "4":
 
                 globalDSPDisable();
 
@@ -153,7 +153,7 @@
                 compressor.attack.setValueAtTime(0.008, context.currentTime);
                 compressor.release.setValueAtTime(0.05, context.currentTime);
 
-                gainCompensator.gain.value = 0.97;
+                gainCompensator.gain.value = 0.96;
                 break;
         }
     });
