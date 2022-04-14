@@ -1,7 +1,7 @@
 ﻿@using Microsoft.JSInterop
 @using System.Runtime.InteropServices
 @inject Blazored.LocalStorage.ISyncLocalStorageService localSotrage
-
+@inject NavigationManager Navigation
 
 @if (AppState.BigPlayerUI)
 {
@@ -41,7 +41,7 @@ else
             <label for="dspPresetSelector" class="form-label"> <i id="dspGlobalEnableButtonIconLarge" class="fa-solid fa-microchip" style="color:#212529e6;"  ></i> DSP Mode</label>
             <select id="dspPresetSelector" class="form-select form-select-sm" aria-label=".form-select-sm example">
                 <option selected value="1">Disabled</option>
-                <option value="2">FM Pump'n'Sparkle</option>
+                <option value="2">FM Sheen</option>
                 <option value="3">AM Oldie Vibes</option>
                 <option value="4">Pirate Phatt Boy</option>
             </select>
@@ -102,7 +102,7 @@ else
                 <div class="col-2 col-md-2 col-lg-2 col-xl-1 col-xxl-1 d-flex justify-content-center align-items-center" >
                     <input type="range" class="form-range" min="0.0" max="1.0" step="0.01" id="waapiVolumeSliderSmallUI" @bind-value="@AppState.Volume" >
                 </div>                
-                <div class="col-8 align-items-center">   
+                <div class="col-8 align-items-center" id="smallPlayerDetailsButton" @onclick="@ClckOnTrackDetails">   
                     <div class="row">
                         <span class="h5">Feel The Wrath Of My Beuatiful Screams</span>
                     </div>
@@ -166,7 +166,12 @@ else
     }
 
     List<RadioCore.StreamSource> streams = Globals.StreamSources();
-    
+
+    private void ClckOnTrackDetails()
+    {
+         Navigation.NavigateTo("", forceLoad: false, replace: true);
+    }
+
     private async Task TogglePlayState()
     {
         if (AppState.IsPlaying)

@@ -1,4 +1,4 @@
-﻿export async function loadWebAudio() {
+﻿export async function engageWarpDrive() {
 
     let context = new (window.AudioContext || window.webkitAudioContext)();
     let audioElement = document.querySelector('#streamSourceElement');
@@ -153,7 +153,7 @@
                 compressor.attack.setValueAtTime(0.008, context.currentTime);
                 compressor.release.setValueAtTime(0.05, context.currentTime);
 
-                gainCompensator.gain.value = 0.96;
+                gainCompensator.gain.value = 0.95;
                 break;
         }
     });
