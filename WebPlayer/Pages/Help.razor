@@ -1,155 +1,157 @@
 ﻿@page "/help"
 
  <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.3)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
-    <h3>Help / FAQ</h3>
-    <br />
-    <ul >
-        <li><a onclick="document.getElementById('q1').scrollIntoView({behavior:'smooth'})" class="link-primary">What is this thing and why is it here?</a></li>
-        <li><a onclick="document.getElementById('q2').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I have to create an account?</a><br /></li>
-        <li><a onclick="document.getElementById('q3').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I need an account to submit a track?</a><br /></li>
-        <li><a onclick="document.getElementById('q4').scrollIntoView({behavior:'smooth'})" class="link-primary">Why do you want my email?</a><br /></li>
-        <li><a onclick="document.getElementById('q5').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I need a new account for each artist name I use?</a><br /></li>
-        <li><a onclick="document.getElementById('q6').scrollIntoView({behavior:'smooth'})" class="link-primary">What if you've alrady uploaded a track for the radio?</a><br /></li>
-        <li><a onclick="document.getElementById('q7').scrollIntoView({behavior:'smooth'})" class="link-primary">Why can't I sign in with my Discord ID?</a><br /></li>
-        <li><a onclick="document.getElementById('q8').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I have to use the web player?</a><br /></li>
-        <li><a onclick="document.getElementById('q9').scrollIntoView({behavior:'smooth'})" class="link-primary">Can I install the web player?</a><br /></li>           
-        <li><a onclick="document.getElementById('q10').scrollIntoView({behavior:'smooth'})" class="link-primary">This thing chews my batteries!</a><br /></li>  
-    </ul>
-    <br />
+     <div class="col-11" style="z-index:1; margin-top:0px; margin-left:20px;">
+        <h3>Help / FAQ</h3>
+        <br />
+        <ul >
+            <li><a onclick="document.getElementById('q1').scrollIntoView({behavior:'smooth'})" class="link-primary">What is this thing and why is it here?</a></li>
+            <li><a onclick="document.getElementById('q2').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I have to create an account?</a><br /></li>
+            <li><a onclick="document.getElementById('q3').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I need an account to submit a track?</a><br /></li>
+            <li><a onclick="document.getElementById('q4').scrollIntoView({behavior:'smooth'})" class="link-primary">Why do you want my email?</a><br /></li>
+            <li><a onclick="document.getElementById('q5').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I need a new account for each artist name I use?</a><br /></li>
+            <li><a onclick="document.getElementById('q6').scrollIntoView({behavior:'smooth'})" class="link-primary">What if you've alrady uploaded a track for the radio?</a><br /></li>
+            <li><a onclick="document.getElementById('q7').scrollIntoView({behavior:'smooth'})" class="link-primary">Why can't I sign in with my Discord ID?</a><br /></li>
+            <li><a onclick="document.getElementById('q8').scrollIntoView({behavior:'smooth'})" class="link-primary">Do I have to use the web player?</a><br /></li>
+            <li><a onclick="document.getElementById('q9').scrollIntoView({behavior:'smooth'})" class="link-primary">Can I install the web player?</a><br /></li>           
+            <li><a onclick="document.getElementById('q10').scrollIntoView({behavior:'smooth'})" class="link-primary">This thing chews my batteries!</a><br /></li>  
+        </ul>
+        <br />
 
 
-    <div id="q1">
-    <h4 >What is this thing and why is it here?</h4>
+        <div id="q1">
+        <h4 >What is this thing and why is it here?</h4>
 
-    <p>This app is an interface for the Deep End community radio, an online radio station created for the members of the Deep End / Venus Theory Discord server to showcase and present their work.</p> 
+        <p>This app is an interface for the Deep End community radio, an online radio station created for the members of the Deep End / Venus Theory Discord server to showcase and present their work.</p> 
 
-    <p>There's a lot of cool and varied music being made by everyone in the server, and this gives us an opportunity to hear what everyone is up to, appreciate some good music, get feedback on what we're doing, and to provide an outlet in to the world when there's so much competition for playtime on other platforms. It was made for the community to get involved with and a platform to encourage constructive conversations.</p>
+        <p>There's a lot of cool and varied music being made by everyone in the server, and this gives us an opportunity to hear what everyone is up to, appreciate some good music, get feedback on what we're doing, and to provide an outlet in to the world when there's so much competition for playtime on other platforms. It was made for the community to get involved with and a platform to encourage constructive conversations.</p>
+        </div>
+
+        <br />
+
+
+
+        <h4 id="q2">Do I have to create an account?</h4>
+
+        <p>No, if you don't want an account you don't have to have one, you can listen to the stream as a guest user without problems. Or you use one the raw streams listed further down the page with a different player.</p>
+
+        <p>If you do create an account, it might also help with new features as they get developed in the future, things like notifications if someone likes your song, or a intelligent submission form that remembers details etc, but none of that works yet so it's entirely up to you.</p>
+
+
+        <br />
+
+
+        <h4 id="q3">Do I need an account to submit a track?</h4>
+
+        <p>If you want to submit a track through the app, then you will need an account, this is to stop spammers and unsolicted uploads.</p>
+
+        <p>I absolutely understand some people will not want to make another account for a number of perfectly legitimate reasons, if that's you that's fine, just hit me up in the Discord (@@smadger) and let me know, I'll let you know what I need and you can DM me the track.</p>
+
+        <br />
+
+
+        <h4 id="q4">Why do you want my email?</h4>
+
+        <p>If you forget your password, you should be able to reset your accont yourself without having to wait for someone to reply to you, and I don't want to know your password, it has nothing to do with me unless something has gone massively wrong. This way you can use your email to recover your account, whenever you need, and I don't have to be involved. You can use any email you want, as long as you can get the activation code from it when you set the account up in the first place.</p>
+
+
+        <br />
+
+        <h4 id="q5">Do I need a new account for each artist name I use?</h4>
+
+        <p>No, just complete the form with a different artist name. If you get stuck or have questions that's cool, just send me a DM in Discord (@@smadger) and I'll sort things out.</p>
+
+        <br />
+
+
+        <h4 id="q6">What if you've alrady uploaded a track for the radio?</h4>
+
+        <p>It's the same situation as above, if you don't want an account that's fine. But if you create an account let me know and I'll get things linked in the background.</p>
+
+        <br />
+
+
+
+        <h4 id="q7">Why can't I sign in with my Discord ID?</h4>
+
+        <p>You might be able to soon, it's being explored, don't know, but for now this is how it's working as there's other parts of the player that are more important.</p>
+
+        <br />
+
+
+        <h4 id="q8">Do I have to use the web player?</h4>
+
+        <p>Noop, if you want to plug directly in to the streams you can use the URLs below in something like <a href="https://www.videolan.org/vlc/">VLC player</a>.</p>
+
+        <b>Note</b>: <em>direct stream connections to an HTTPS endpoint don't provide track metadata.</em>
+        <br />
+        <br />
+
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <tr>
+                    <!-- <th scope="col">Host</th> --> 
+                    <th scope="col">Country</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Metadata</th>
+                </tr>
+                <tr>
+                    <!--  <td>Smadger</td> --> 
+                    <td>UK 1</td>
+                    <td>http://deepend.ddns.net:8000/</td>
+                    <td>192k</td>
+                    <td><i class="bi bi-check-lg text-success"></i></td>
+                </tr>
+                <tr>
+                    <!--  <td>Smadger</td> --> 
+                    <td>UK 2</td>
+                    <td>https://deepend.ddns.net/stream</td>
+                    <td>192k</td>
+                    <td><i class="bi bi-x-lg text-danger"></i></td>
+                </tr>
+                <tr>
+                    <!--  <td>ClusterFox</td> --> 
+                    <td>USA 1</td>
+                    <td>http://deependswamp.ddns.net:8000/deepend</td>
+                    <td>320k</td>
+                    <td><i class="bi bi-check-lg text-success"></i></td>
+                </tr>
+                <tr>
+                    <!--  <td>ClusterFox</td> --> 
+                    <td>USA 2</td>
+                    <td>https://deependswamp.ddns.net:8443/deepend</td>
+                    <td>320k</td>
+                    <td><i class="bi bi-x-lg text-danger"></i></td>
+                </tr>
+            </table>
+        </div>
+
+        <br />
+
+        <h4 id="q9">Can I install the web player?</h4>
+
+        <p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
+
+        <br />
+
+        <button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
+        <br />
+        <br />
+          <br />
+
+        <h4 id="q10">This thing chews my batteries!</h4>
+
+        <p>If you're using this on mobile and find it's using a lot of battery, try switching to a lower bitrate stream and turning the DSP settings off - the DSP is fairly lightweight, but will still be using extra CPU cycles on top of the regular audio rendering.</p>
+
+        <br />
+        <br />
+        <br />
+
+        <br />
+        <br />
+        <br />
     </div>
-
-    <br />
-
-
-
-    <h4 id="q2">Do I have to create an account?</h4>
-
-    <p>No, if you don't want an account you don't have to have one, you can listen to the stream as a guest user without problems. Or you use one the raw streams listed further down the page with a different player.</p>
-
-    <p>If you do create an account, it might also help with new features as they get developed in the future, things like notifications if someone likes your song, or a intelligent submission form that remembers details etc, but none of that works yet so it's entirely up to you.</p>
-
-
-    <br />
-
-
-    <h4 id="q3">Do I need an account to submit a track?</h4>
-
-    <p>If you want to submit a track through the app, then you will need an account, this is to stop spammers and unsolicted uploads.</p>
-
-    <p>I absolutely understand some people will not want to make another account for a number of perfectly legitimate reasons, if that's you that's fine, just hit me up in the Discord (@@smadger) and let me know, I'll let you know what I need and you can DM me the track.</p>
-
-    <br />
-
-
-    <h4 id="q4">Why do you want my email?</h4>
-
-    <p>If you forget your password, you should be able to reset your accont yourself without having to wait for someone to reply to you, and I don't want to know your password, it has nothing to do with me unless something has gone massively wrong. This way you can use your email to recover your account, whenever you need, and I don't have to be involved. You can use any email you want, as long as you can get the activation code from it when you set the account up in the first place.</p>
-
-
-    <br />
-
-    <h4 id="q5">Do I need a new account for each artist name I use?</h4>
-
-    <p>No, just complete the form with a different artist name. If you get stuck or have questions that's cool, just send me a DM in Discord (@@smadger) and I'll sort things out.</p>
-
-    <br />
-
-
-    <h4 id="q6">What if you've alrady uploaded a track for the radio?</h4>
-
-    <p>It's the same situation as above, if you don't want an account that's fine. But if you create an account let me know and I'll get things linked in the background.</p>
-
-    <br />
-
-
-
-    <h4 id="q7">Why can't I sign in with my Discord ID?</h4>
-
-    <p>You might be able to soon, it's being explored, don't know, but for now this is how it's working as there's other parts of the player that are more important.</p>
-
-    <br />
-
-
-    <h4 id="q8">Do I have to use the web player?</h4>
-
-    <p>Noop, if you want to plug directly in to the streams you can use the URLs below in something like <a href="https://www.videolan.org/vlc/">VLC player</a>.</p>
-
-    <b>Note</b>: <em>direct stream connections to an HTTPS endpoint don't provide track metadata.</em>
-    <br />
-    <br />
-
-    <div class="table-responsive">
-        <table class="table table-sm">
-            <tr>
-                <!-- <th scope="col">Host</th> --> 
-                <th scope="col">Country</th>
-                <th scope="col">URL</th>
-                <th scope="col">Rate</th>
-                <th scope="col">Metadata</th>
-            </tr>
-            <tr>
-                <!--  <td>Smadger</td> --> 
-                <td>UK 1</td>
-                <td>http://deepend.ddns.net:8000/</td>
-                <td>192k</td>
-                <td><i class="bi bi-check-lg text-success"></i></td>
-            </tr>
-            <tr>
-                <!--  <td>Smadger</td> --> 
-                <td>UK 2</td>
-                <td>https://deepend.ddns.net/stream</td>
-                <td>192k</td>
-                <td><i class="bi bi-x-lg text-danger"></i></td>
-            </tr>
-            <tr>
-                <!--  <td>ClusterFox</td> --> 
-                <td>USA 1</td>
-                <td>http://deependswamp.ddns.net:8000/deepend</td>
-                <td>320k</td>
-                <td><i class="bi bi-check-lg text-success"></i></td>
-            </tr>
-            <tr>
-                <!--  <td>ClusterFox</td> --> 
-                <td>USA 2</td>
-                <td>https://deependswamp.ddns.net:8443/deepend</td>
-                <td>320k</td>
-                <td><i class="bi bi-x-lg text-danger"></i></td>
-            </tr>
-        </table>
-    </div>
-
-    <br />
-
-    <h4 id="q9">Can I install the web player?</h4>
-
-    <p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
-
-    <br />
-
-    <button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
-    <br />
-    <br />
-      <br />
-
-    <h4 id="q10">This thing chews my batteries!</h4>
-
-    <p>If you're using this on mobile and find it's using a lot of battery, try switching to a lower bitrate stream and turning the DSP settings off - the DSP is fairly lightweight, but will still be using extra CPU cycles on top of the regular audio rendering.</p>
-
-    <br />
-    <br />
-    <br />
-
-    <br />
-    <br />
-    <br />
 </Animate>
 
 @code {
