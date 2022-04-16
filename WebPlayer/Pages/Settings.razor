@@ -6,59 +6,56 @@
 @page "/settings"
 
 <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.3)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
-
-    <h3>Settings</h3>
-
-    <br />
-
-    <h4>Clear the local cache</h4>
-
-    <p>If things go funky and you settings aren't changing corectly, you can try clearing the local cache and resetting everything to default (local settings only, your account and password etc wont get touched), might not help, but worth a go.</p>
-
-    <br />
-
-    <button type="button" class="btn btn-warning"  id="install_button" @onclick="@ClearCache"> <i class="fa-regular fa-trash-can"></i> Clear Storage</button>
-
-    <br />
-    <br />
-    <br />
-
-    <h4>Install the web player?</h4>
-
-    <p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
-
-    <br />
-
-    <button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
-
-    <br />
-    <br />
-    <br />
-
-    <AuthorizeView>
-        <Authorized>
-        <h4>Notifications</h4>
-        <p>These, like the whole web player, work best on desktop. Your mileage may vaey on mobile. You don't have to have these enabled, but in the future there will be functions to notify you when your track is about to be played, or when someone likes your track etc. If you want them enabled, you can try it here.</p>
+    <div style="z-index:1; margin-top:0px;">
+        <h3>Settings</h3>
 
         <br />
-        <button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
-        <button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
+
+        <h4>Clear the local cache</h4>
+
+        <p>If things go funky and you settings aren't changing corectly, you can try clearing the local cache and resetting everything to default (local settings only, your account and password etc wont get touched), might not help, but worth a go.</p>
+
+        <br />
+
+        <button type="button" class="btn btn-warning"  id="install_button" @onclick="@ClearCache"> <i class="fa-regular fa-trash-can"></i> Clear Storage</button>
+
+        <br />
+        <br />
+        <br />
+
+        <h4>Install the web player?</h4>
+
+        <p>The web player is a PWA, meaning you should be able to "install" it on your desktop or phone, but you don't have to, you can just use it as a website. Just click the install button below.</p>
+
+        <br />
+
+        <button type="button" class="btn btn-success"  id="install_button" onclick="installApp()"><i class="fa-solid fa-floppy-disk"></i> Install Player</button>
+
+        <br />
+        <br />
+        <br />
+
+        <!-- <AuthorizeView>
+            <Authorized>
+            <h4>Notifications</h4>
+            <p>These work best on desktop, your mileage may vaey on mobile. You don't have to have these enabled and nothing is set to use them yet, but stuff is in the works.</p>
+
+            <br />
+            <button type="button" class="btn btn-success" onclick="@RequestNotificationPermission"><i class="fa-solid fa-bell"></i> Enable Notifications</button>
+            <button type="button" class="btn btn-primary" onclick="@TriggerNotification"><i class="fa-solid fa-flask"></i> Send a Test Notifiaction</button>
 
         
-    </Authorized>
-    <NotAuthorized>
-    </NotAuthorized>
-</AuthorizeView>
+            </Authorized>
+            <NotAuthorized>
+            </NotAuthorized>
+        </AuthorizeView> -->
+
+    </div>
 </Animate>
 <br />
 <br />
 <br />
-<em>More coming soon...</em>
-<br />
-<br />
-<br />
-<br />
-<br />
+
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
