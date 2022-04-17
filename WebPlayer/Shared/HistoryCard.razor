@@ -1,17 +1,17 @@
 ﻿<a class="list-group-item list-group-item-action" aria-current="true" style="text-align: center;" justify-content-center align-items-center>   
     <br />
-    <Socials FontSize="1.2em"  />
+    @*<Socials FontSize="1.2em"  />
+    <br />*@
+    <small style="color:#212529e6;">@DateTime.Now</small>
     <br />
-    <small>@DateTime.Now</small>
-    <br />
-    <h1 class="align-content-center display-6" >
+    <h1 class="align-content-center display-6" style="color:#212529e6;">
     Track Title
     </h1>
-    <blockquote class="blockquote">
+    <blockquote class="blockquote" style="color:#212529e6;">
     <em>Artist Name</em>
     </blockquote>
-    <Ratings CountSize="0.6em" IconSize="0.9em" />    
-    <br />
+    @*<Ratings CountSize="0.6em" IconSize="0.9em" />    
+    <br />*@
 </a>
 
 @code {

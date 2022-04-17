@@ -6,7 +6,6 @@
 @inject NavigationManager NavManager
 @inject Blazored.LocalStorage.ILocalStorageService localSotrage
 
-
 <!-- <style>
     body { padding-top: 55px; padding-bottom: 110px; }
 </style> -->
@@ -24,19 +23,15 @@
     </main>
 </div>
 
-
 <div id="isPlaying" hidden>@AppState.IsPlaying</div>
 <div id="streamURL" hidden>@AppState.CurrentStream.URL</div>
-
-<!-- <div id="dspPreset" hidden>@AppState.DspPreset</div>
-<div id="dspGlobalEnable" hidden>@AppState.DspGlobalEnable</div> -->
 
 <audio controls hidden preload="auto" id="streamSourceElement" src="https://deependswamp.ddns.net:8443/deepend" type="audio/mpeg" crossorigin="anonymous"></audio>
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
 
-    public List<RadioCore.StreamSource> defaultStreams = RadioCore.Globals.StreamSources();
+    //public List<RadioCore.StreamSource> defaultStreams = RadioCore.Globals.StreamSources();
 
     [Inject]
     public IJSRuntime JSRuntime { get; set; }
@@ -45,7 +40,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        RadioCore.StreamSource storedStream = await localSotrage.GetItemAsync<RadioCore.StreamSource>("storedStream");
+        //RadioCore.StreamSource storedStream = await localSotrage.GetItemAsync<RadioCore.StreamSource>("storedStream");
 
         
         
