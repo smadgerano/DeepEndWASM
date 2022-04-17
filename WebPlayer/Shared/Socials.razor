@@ -1,0 +1,52 @@
+﻿ <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(0.3)" Delay="TimeSpan.FromSeconds(0)" Easing="Easings.EaseInOut">
+
+    <div class="row" style="text-align: center;" justify-content-center align-items-center>
+        <div class="col">
+        </div>
+        
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Spotify">                
+            <i class="fa-brands fa-spotify" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Bandcamp">                
+            <i class="fa-brands fa-bandcamp" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="SoundCloud">                
+            <i class="fa-brands fa-soundcloud" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="YouTube">                
+            <i class="fa-brands fa-youtube" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram">                
+            <i class="fa-brands fa-instagram" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">                
+            <i class="fa-brands fa-facebook" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+        <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter">                
+            <i class="fa-brands fa-twitter" style="color:#212529e6; font-size:@FontSize; cursor:pointer" ></i> 
+        </div>
+
+        <div class="col">
+        </div>
+    </div>
+
+</Animate>
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    [Parameter]
+    public string FontSize { get; set;  }
+
+    [CascadingParameter] string trackID { get; set;  }
+
+    string? spotifyLink;
+    string? bandcampLink;
+    string? soundcloudLink;
+    string? youtubeLink;
+    string? instagramLink;
+    string? facebookLink;
+    string? twitterLink;
+
+}
+

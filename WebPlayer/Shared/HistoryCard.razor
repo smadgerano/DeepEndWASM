@@ -1,0 +1,27 @@
+﻿<a class="list-group-item list-group-item-action" aria-current="true" style="text-align: center;" justify-content-center align-items-center>   
+    <br />
+    <Socials FontSize="1.2em"  />
+    <br />
+    <small>@DateTime.Now</small>
+    <br />
+    <h1 class="align-content-center display-6" >
+    Track Title
+    </h1>
+    <blockquote class="blockquote">
+    <em>Artist Name</em>
+    </blockquote>
+    <Ratings CountSize="0.6em" IconSize="0.9em" />    
+    <br />
+</a>
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    [Parameter]
+    public int ID { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+           
+    }
+}

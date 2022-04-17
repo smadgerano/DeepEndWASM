@@ -1,0 +1,100 @@
+﻿<div class="row" >
+    <div class="col " style="text-align: center;" >
+        <div class="col">
+            <div class="row"> 
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Boat stealing music" style="cursor:pointer">
+                    <div class="row" style="text-align: center; margin-bottom:-10px; " >
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                        <i class="fa-solid fa-ship" style="color:#212529e6; font-size:@IconSize;"  ></i> 
+                    </div>
+                    </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Fat sausage"  style="cursor:pointer">
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-hotdog" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="This is FIRE!"  style="cursor:pointer">
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-fire" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="That's spicy"  style="cursor:pointer">   
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-pepper-hot" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="- - - v o i d - - -"  style="cursor:pointer">
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-regular fa-circle" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>                                
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="This slaps HARD"  style="cursor:pointer">   
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-hand-sparkles" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Chill coffee vibes"  style="cursor:pointer">  
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-mug-hot" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Winning"  style="cursor:pointer">   
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-trophy" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+                <div class="col" data-bs-toggle="tooltip" data-bs-placement="top" title="Maverick"  style="cursor:pointer">
+                    <div class="row" style="text-align: center; margin-bottom:-10px">
+                        <p style=" font-size:@CountSize;">0</p>
+                    </div>
+                    <div class="row" > 
+                    <i class="fa-solid fa-jet-fighter" style="color:#212529e6; font-size:@IconSize;" ></i> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    [Parameter]
+    public string CountSize { get; set;  }
+
+    [Parameter]
+    public string IconSize { get; set;  }
+
+    [CascadingParameter] string trackID { get; set;  }
+
+    string? spotifyLink;
+    string? bandcampLink;
+    string? soundcloudLink;
+    string? youtubeLink;
+    string? instagramLink;
+    string? facebookLink;
+    string? twitterLink;
+}
