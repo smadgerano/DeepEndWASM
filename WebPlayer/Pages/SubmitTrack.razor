@@ -4,10 +4,106 @@
 <div class="col-11" style="z-index:1; margin-top:0px; margin-left:20px;">
     <h3>Submit a Track</h3>
 
-    <p>Upload a track for the radio playlist</p>
-    <em>Coming soon...</em>
+    <p>Upload a track for the radio playlist. Only MP3's can be uplaoded at the moment, but any bitrate will be fine.</p>
+    <em class="small">* required field</em>
+    <br />
+
+    <div class="mb-3 ">
+        <label for="submit-artist-name" class="form-label">Artist name *</label>
+        <input class="form-control input-group-sm" list="datalistOptions" id="submit-artist-name" placeholder="..." aria-label=".form-control-sm example">
+        <datalist id="datalistOptions">
+          <option value="" />
+        </datalist>
+    </div>
+
+    <div class="mb-3 ">
+        <label for="submit-track-title" class="form-label">Track title *</label>
+        <input class="form-control form-control-sm" id="submit-track-title" type="text" placeholder="..." aria-label=".form-control-sm example">
+    </div>
+
+    <div class="mb-3 ">
+        <label for="submit-track-album" class="form-label">Album title</label>
+        <input class="form-control form-control-sm" id="submit-track-album" type="text" placeholder="..." aria-label=".form-control-sm example">
+    </div>
+
+    <div class="mb-3 ">
+        <label for="submit-year-released" class="form-label">Year *</label>
+        <input class="form-control form-control-sm" id="submit-year-released" type="text" placeholder="..." aria-label=".form-control-sm example">
+    </div>
+
+    <div class="mb-3 ">
+        <label for="streamSelectoDropListr" class="form-label"> Genre *</label>
+        <select id="streamSelectoDropListr" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            @foreach(Genre g in genres)
+            {
+                <option value="@g.SpecNumber">@g.Name</option>
+            }
+        </select>
+    </div>
+
+    <label for="submit-track-spotify" class="form-label">Audio file *</label>
+    <div class="input-group mb-3 input-group-sm">
+      <input type="file" class="form-control" id="submit-track-file">
+    </div>
+
+    <label for="submit-track-spotify" class="form-label">Track art</label>
+    <div class="input-group mb-3 input-group-sm">
+      <input type="file" class="form-control" id="submit-track-art">
+    </div>
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-spotify" class="form-label">Spotify</label>
+        <input class="form-control form-control-sm" id="submit-track-spotify" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-bandcamp" class="form-label">Bandcamp</label>
+        <input class="form-control form-control-sm" id="submit-track-bandcamp" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+    
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-soundcloud" class="form-label">Soundcloud</label>
+        <input class="form-control form-control-sm" id="submit-track-soundcloud" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-youtube" class="form-label">YouTube</label>
+        <input class="form-control form-control-sm" id="submit-track-youtube" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-instagram" class="form-label">Instagram</label>
+        <input class="form-control form-control-sm" id="submit-track-instagram" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-facebook" class="form-label">Facebook</label>
+        <input class="form-control form-control-sm" id="submit-track-facebook" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+
+    
+    <div class="mb-3 ">        
+        <label for="submit-track-twitter" class="form-label">Twitter</label>
+        <input class="form-control form-control-sm" id="submit-track-twitter" type="text" placeholder="..." aria-label=".form-control-sm example" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="mb-3 form-check">
+        <label for="submit-accept-box" class="form-check-label">I confirm you own the rights to the recording, and am happy for it to be played on the stream *</label>
+        <input class="form-check-input" id="submit-accept-box" type="checkbox" value="" >
+    </div>
+
+    <br />
+    <button type="button" class="btn btn-primary btn-sm" id="submitTrack"><i class="fa-solid fa-file-arrow-up" ></i> Submit Track</button>
+    <br />
+    <br />
 </div>
 </Animate>
+<br />
 <br />
 <br />
 <br />
@@ -15,6 +111,8 @@
 
 @code {
     [CascadingParameter] public CascadingAppState AppState { get; set; }
+
+    List<Genre> genres = Globals.Genres();
 
     protected override async Task OnInitializedAsync()
     {
